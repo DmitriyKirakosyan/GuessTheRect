@@ -8,6 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		32334B7319D9EFA800413DC9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32334B7219D9EFA800413DC9 /* MainViewController.swift */; };
+		3285735F19EE8E5B00A00092 /* PlayerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3285735E19EE8E5B00A00092 /* PlayerData.swift */; };
+		3285736119EEE05000A00092 /* InfoPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3285736019EEE05000A00092 /* InfoPanel.xib */; };
+		3285736319EEE22F00A00092 /* InfoPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3285736219EEE22F00A00092 /* InfoPanelView.swift */; };
+		3285736519EEEB5300A00092 /* GameBalance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3285736419EEEB5300A00092 /* GameBalance.swift */; };
+		32C0280519F52BFA001B1A96 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32C027FA19F52BFA001B1A96 /* OpenSans-Bold.ttf */; };
+		32C0280619F52BFA001B1A96 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32C027FB19F52BFA001B1A96 /* OpenSans-BoldItalic.ttf */; };
+		32C0280719F52BFA001B1A96 /* OpenSans-CondBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32C027FC19F52BFA001B1A96 /* OpenSans-CondBold.ttf */; };
+		32C0280819F52BFA001B1A96 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32C027FD19F52BFA001B1A96 /* OpenSans-ExtraBold.ttf */; };
+		32C0280919F52BFA001B1A96 /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32C027FE19F52BFA001B1A96 /* OpenSans-ExtraBoldItalic.ttf */; };
+		32C0280A19F52BFA001B1A96 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32C027FF19F52BFA001B1A96 /* OpenSans-Italic.ttf */; };
+		32C0280B19F52BFA001B1A96 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32C0280019F52BFA001B1A96 /* OpenSans-Light.ttf */; };
+		32C0280C19F52BFA001B1A96 /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32C0280119F52BFA001B1A96 /* OpenSans-LightItalic.ttf */; };
+		32C0280D19F52BFA001B1A96 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32C0280219F52BFA001B1A96 /* OpenSans-Regular.ttf */; };
+		32C0280E19F52BFA001B1A96 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32C0280319F52BFA001B1A96 /* OpenSans-Semibold.ttf */; };
+		32C0280F19F52BFA001B1A96 /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32C0280419F52BFA001B1A96 /* OpenSans-SemiboldItalic.ttf */; };
+		32C0281119F52C5B001B1A96 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C0281019F52C5B001B1A96 /* Settings.swift */; };
+		32C0281419F539F9001B1A96 /* arrowRepeat.png in Resources */ = {isa = PBXBuildFile; fileRef = 32C0281219F539F9001B1A96 /* arrowRepeat.png */; };
+		32C0281519F539F9001B1A96 /* arrowToMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 32C0281319F539F9001B1A96 /* arrowToMenu.png */; };
 		32DA8D9919E2F8C700D6968F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DA8D9819E2F8C700D6968F /* Colors.swift */; };
 		32EF771219D08636006707A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EF771119D08636006707A5 /* AppDelegate.swift */; };
 		32EF771419D08636006707A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EF771319D08636006707A5 /* ViewController.swift */; };
@@ -30,8 +48,26 @@
 
 /* Begin PBXFileReference section */
 		32334B7219D9EFA800413DC9 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		3285735E19EE8E5B00A00092 /* PlayerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerData.swift; sourceTree = "<group>"; };
+		3285736019EEE05000A00092 /* InfoPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoPanel.xib; sourceTree = "<group>"; };
+		3285736219EEE22F00A00092 /* InfoPanelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoPanelView.swift; sourceTree = "<group>"; };
+		3285736419EEEB5300A00092 /* GameBalance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameBalance.swift; sourceTree = "<group>"; };
+		32C027FA19F52BFA001B1A96 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		32C027FB19F52BFA001B1A96 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		32C027FC19F52BFA001B1A96 /* OpenSans-CondBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-CondBold.ttf"; sourceTree = "<group>"; };
+		32C027FD19F52BFA001B1A96 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		32C027FE19F52BFA001B1A96 /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		32C027FF19F52BFA001B1A96 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
+		32C0280019F52BFA001B1A96 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		32C0280119F52BFA001B1A96 /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		32C0280219F52BFA001B1A96 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		32C0280319F52BFA001B1A96 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
+		32C0280419F52BFA001B1A96 /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
+		32C0281019F52C5B001B1A96 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		32C0281219F539F9001B1A96 /* arrowRepeat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowRepeat.png; sourceTree = "<group>"; };
+		32C0281319F539F9001B1A96 /* arrowToMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowToMenu.png; sourceTree = "<group>"; };
 		32DA8D9819E2F8C700D6968F /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		32EF770C19D08636006707A5 /* guessTheRect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = guessTheRect.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		32EF770C19D08636006707A5 /* colorsmemory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = colorsmemory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32EF771019D08636006707A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32EF771119D08636006707A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32EF771319D08636006707A5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +98,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		32C027F819F52BFA001B1A96 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				32C0281219F539F9001B1A96 /* arrowRepeat.png */,
+				32C0281319F539F9001B1A96 /* arrowToMenu.png */,
+				32C027F919F52BFA001B1A96 /* fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		32C027F919F52BFA001B1A96 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				32C027FA19F52BFA001B1A96 /* OpenSans-Bold.ttf */,
+				32C027FB19F52BFA001B1A96 /* OpenSans-BoldItalic.ttf */,
+				32C027FC19F52BFA001B1A96 /* OpenSans-CondBold.ttf */,
+				32C027FD19F52BFA001B1A96 /* OpenSans-ExtraBold.ttf */,
+				32C027FE19F52BFA001B1A96 /* OpenSans-ExtraBoldItalic.ttf */,
+				32C027FF19F52BFA001B1A96 /* OpenSans-Italic.ttf */,
+				32C0280019F52BFA001B1A96 /* OpenSans-Light.ttf */,
+				32C0280119F52BFA001B1A96 /* OpenSans-LightItalic.ttf */,
+				32C0280219F52BFA001B1A96 /* OpenSans-Regular.ttf */,
+				32C0280319F52BFA001B1A96 /* OpenSans-Semibold.ttf */,
+				32C0280419F52BFA001B1A96 /* OpenSans-SemiboldItalic.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 		32EF770319D08636006707A5 = {
 			isa = PBXGroup;
 			children = (
@@ -74,7 +138,7 @@
 		32EF770D19D08636006707A5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				32EF770C19D08636006707A5 /* guessTheRect.app */,
+				32EF770C19D08636006707A5 /* colorsmemory.app */,
 				32EF772119D08636006707A5 /* guessTheRectTests.xctest */,
 			);
 			name = Products;
@@ -84,6 +148,8 @@
 			isa = PBXGroup;
 			children = (
 				32EF771119D08636006707A5 /* AppDelegate.swift */,
+				32C027F819F52BFA001B1A96 /* Resources */,
+				3285735E19EE8E5B00A00092 /* PlayerData.swift */,
 				32EF771319D08636006707A5 /* ViewController.swift */,
 				32EF771519D08636006707A5 /* Main.storyboard */,
 				32EF771819D08636006707A5 /* Images.xcassets */,
@@ -92,6 +158,10 @@
 				32EF773119D143F4006707A5 /* Box.swift */,
 				32334B7219D9EFA800413DC9 /* MainViewController.swift */,
 				32DA8D9819E2F8C700D6968F /* Colors.swift */,
+				3285736019EEE05000A00092 /* InfoPanel.xib */,
+				3285736219EEE22F00A00092 /* InfoPanelView.swift */,
+				3285736419EEEB5300A00092 /* GameBalance.swift */,
+				32C0281019F52C5B001B1A96 /* Settings.swift */,
 			);
 			path = guessTheRect;
 			sourceTree = "<group>";
@@ -124,9 +194,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		32EF770B19D08636006707A5 /* guessTheRect */ = {
+		32EF770B19D08636006707A5 /* colorsmemory */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 32EF772B19D08636006707A5 /* Build configuration list for PBXNativeTarget "guessTheRect" */;
+			buildConfigurationList = 32EF772B19D08636006707A5 /* Build configuration list for PBXNativeTarget "colorsmemory" */;
 			buildPhases = (
 				32EF770819D08636006707A5 /* Sources */,
 				32EF770919D08636006707A5 /* Frameworks */,
@@ -136,9 +206,9 @@
 			);
 			dependencies = (
 			);
-			name = guessTheRect;
+			name = colorsmemory;
 			productName = guessTheRect;
-			productReference = 32EF770C19D08636006707A5 /* guessTheRect.app */;
+			productReference = 32EF770C19D08636006707A5 /* colorsmemory.app */;
 			productType = "com.apple.product-type.application";
 		};
 		32EF772019D08636006707A5 /* guessTheRectTests */ = {
@@ -170,6 +240,7 @@
 				TargetAttributes = {
 					32EF770B19D08636006707A5 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = Q329V6GPTU;
 					};
 					32EF772019D08636006707A5 = {
 						CreatedOnToolsVersion = 6.1;
@@ -190,7 +261,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				32EF770B19D08636006707A5 /* guessTheRect */,
+				32EF770B19D08636006707A5 /* colorsmemory */,
 				32EF772019D08636006707A5 /* guessTheRectTests */,
 			);
 		};
@@ -201,8 +272,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32C0280619F52BFA001B1A96 /* OpenSans-BoldItalic.ttf in Resources */,
+				32C0280F19F52BFA001B1A96 /* OpenSans-SemiboldItalic.ttf in Resources */,
+				32C0280919F52BFA001B1A96 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
+				32C0280C19F52BFA001B1A96 /* OpenSans-LightItalic.ttf in Resources */,
 				32EF771719D08636006707A5 /* Main.storyboard in Resources */,
+				32C0280A19F52BFA001B1A96 /* OpenSans-Italic.ttf in Resources */,
 				32EF771C19D08636006707A5 /* LaunchScreen.xib in Resources */,
+				32C0280819F52BFA001B1A96 /* OpenSans-ExtraBold.ttf in Resources */,
+				3285736119EEE05000A00092 /* InfoPanel.xib in Resources */,
+				32C0280719F52BFA001B1A96 /* OpenSans-CondBold.ttf in Resources */,
+				32C0280519F52BFA001B1A96 /* OpenSans-Bold.ttf in Resources */,
+				32C0281519F539F9001B1A96 /* arrowToMenu.png in Resources */,
+				32C0280B19F52BFA001B1A96 /* OpenSans-Light.ttf in Resources */,
+				32C0280D19F52BFA001B1A96 /* OpenSans-Regular.ttf in Resources */,
+				32C0280E19F52BFA001B1A96 /* OpenSans-Semibold.ttf in Resources */,
+				32C0281419F539F9001B1A96 /* arrowRepeat.png in Resources */,
 				32EF771919D08636006707A5 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,9 +306,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3285735F19EE8E5B00A00092 /* PlayerData.swift in Sources */,
 				32EF773219D143F4006707A5 /* Box.swift in Sources */,
 				32DA8D9919E2F8C700D6968F /* Colors.swift in Sources */,
+				3285736319EEE22F00A00092 /* InfoPanelView.swift in Sources */,
+				3285736519EEEB5300A00092 /* GameBalance.swift in Sources */,
 				32EF771419D08636006707A5 /* ViewController.swift in Sources */,
+				32C0281119F52C5B001B1A96 /* Settings.swift in Sources */,
 				32EF771219D08636006707A5 /* AppDelegate.swift in Sources */,
 				32334B7319D9EFA800413DC9 /* MainViewController.swift in Sources */,
 			);
@@ -242,7 +331,7 @@
 /* Begin PBXTargetDependency section */
 		32EF772319D08636006707A5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 32EF770B19D08636006707A5 /* guessTheRect */;
+			target = 32EF770B19D08636006707A5 /* colorsmemory */;
 			targetProxy = 32EF772219D08636006707A5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -284,8 +373,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Alexey Martynenko (734D76NJMB)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alexey Martynenko (734D76NJMB)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: DMITRIY KIRAKOSYAN (Q329V6GPTU)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: DMITRIY KIRAKOSYAN (Q329V6GPTU)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -305,6 +394,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "3584fc31-d240-4f6c-9555-ee94a2665681";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -328,8 +418,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Alexey Martynenko (734D76NJMB)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alexey Martynenko (734D76NJMB)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: DMITRIY KIRAKOSYAN (Q329V6GPTU)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: DMITRIY KIRAKOSYAN (Q329V6GPTU)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -342,6 +432,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "3584fc31-d240-4f6c-9555-ee94a2665681";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -352,11 +443,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Alexey Martynenko (734D76NJMB)";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: DMITRIY KIRAKOSYAN (Q329V6GPTU)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: DMITRIY KIRAKOSYAN (Q329V6GPTU)";
 				INFOPLIST_FILE = guessTheRect/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "3584fc31-d240-4f6c-9555-ee94a2665681";
 			};
 			name = Debug;
 		};
@@ -364,11 +458,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Alexey Martynenko (734D76NJMB)";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: DMITRIY KIRAKOSYAN (Q329V6GPTU)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: DMITRIY KIRAKOSYAN (Q329V6GPTU)";
 				INFOPLIST_FILE = guessTheRect/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "3584fc31-d240-4f6c-9555-ee94a2665681";
 			};
 			name = Release;
 		};
@@ -418,7 +515,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		32EF772B19D08636006707A5 /* Build configuration list for PBXNativeTarget "guessTheRect" */ = {
+		32EF772B19D08636006707A5 /* Build configuration list for PBXNativeTarget "colorsmemory" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				32EF772C19D08636006707A5 /* Debug */,

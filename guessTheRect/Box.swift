@@ -17,7 +17,7 @@ class Box: UIView {
     
     convenience init(backColor: UIColor, size: CGFloat)
     {
-        self.init(frontColor: UIColor.greenColor(), backColor: backColor, size: size)
+        self.init(frontColor: Colors.getSolidFrontColor(), backColor: backColor, size: size)
     }
     
     init(frontColor: UIColor, backColor:UIColor, size: CGFloat) {
@@ -42,6 +42,10 @@ class Box: UIView {
 
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func isEmpty() -> Bool {
+        return self.backSquare.backgroundColor!.isEqual(UIColor.blackColor())
     }
     
     func activate() { self.activated = true; }
