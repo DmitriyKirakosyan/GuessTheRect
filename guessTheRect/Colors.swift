@@ -257,12 +257,22 @@ class Colors {
     }
     
     class func getBackColor() -> UIColor {
-        return UIColor(red: 60/255, green: 68/255, blue: 89/255, alpha: 1)
+        return UIColor(red: 150/255, green: 150/255, blue: 150/255, alpha: 1)
     }
     
     class func getSolidFrontColor() -> UIColor {
-        return UIColor.whiteColor()
+        return UIColor(red: 255/255, green: 242/255, blue: 232/255, alpha: 1)
+        //return UIColor.whiteColor()
     }
+    
+    class func getEmptyBoxColor() -> UIColor {
+        return getBackColor()
+    }
+    
+    class func orangeTextColor() -> UIColor {
+        return UIColor.orangeColor()
+    }
+
 }
 
 

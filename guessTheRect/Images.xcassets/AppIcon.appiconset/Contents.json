@@ -71,13 +71,6 @@
       "idiom" : "ipad",
       "filename" : "icon152.png",
       "scale" : "2x"
-    },
-    {
-      "size" : "29x29",
-      "idiom" : "iphone",
-      "filename" : "icon29.png",
-      "unassigned" : true,
-      "scale" : "1x"
     }
   ],
   "info" : {

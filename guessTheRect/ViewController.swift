@@ -9,7 +9,7 @@
 import UIKit
 import iAd
 
-class ViewController: UIViewController, InfoPanelProtocol, ADBannerViewDelegate {
+class ViewController: UIViewController, InfoPanelProtocol, ADBannerViewDelegate, ScoreManagerDelegate, TutorControllerDelegate {
     let SET_3 = 3
     let SET_5 = 5
     
@@ -17,14 +17,14 @@ class ViewController: UIViewController, InfoPanelProtocol, ADBannerViewDelegate 
     var openedTimeout: Int = 10
     var boxesRow:Int = 0
     var randomFront:Bool = false
-    let SIDE_OFFSET: CGFloat = 50
-    let TOP_OFFSET: CGFloat = 100
     
-    let MAIN_CONTAINER_OFFSET: CGFloat = 10
-    
-    var boxSize: CGFloat = 0.0
+    var currentLevel: LevelVO!
+    var boxesOpened: Int = 0
     
     var infoView: InfoPanelView?
+    var scoreManager: ScoreManager!
+    
+    var restartBtn: UIButton!
 
     var tapAvailable:Bool = true
     var boxes:[Box] = []
@@ -33,16 +33,51 @@ class ViewController: UIViewController, InfoPanelProtocol, ADBannerViewDelegate 
     var currentOpenedBoxes: [Box] = []
     
     var bannerView: ADBannerView?;
+    
+    var gameStarted: Bool = false
+    var isGameOver: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.initGame()
         self.addBanner()
+        self.setupMenuButtons()
+        self.setupScoreManager()
+        self.startNextLevelSafe()
+        self.showTutor()
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
+    }
+    
+    func levelCompleted() {
+        self.startNextLevelSafe()
+    }
+    
+    func gameOver() {
+        self.blinkView(containerView)
+        self.stopGame()
+        self.saveScore()
+        LevelProvider.sharedInstance.resetLevel()
+        self.isGameOver = true
+    }
+    
+    func showTutor()
+    {
+        self.tapAvailable = false
+        self.restartBtn.hidden = true
+        
+        let tutorController = TutorController(container: self.view)
+        tutorController.delegate = self
+        tutorController.startTutorial()
+    }
+    
+    func startNextLevelSafe() {
+        var levelVO = LevelProvider.sharedInstance.getNextLevel()
+        if let existsLevelVO = levelVO {
+            self.startLevel(existsLevelVO)
+        }
     }
     
     func addBanner() {
@@ -53,58 +88,90 @@ class ViewController: UIViewController, InfoPanelProtocol, ADBannerViewDelegate 
         }
         bannerView?.delegate = self
         
-        bannerView!.frame.origin.y = self.view.frame.size.height - bannerView!.frame.size.height
+        
+        println(bannerView!.frame.size.height)
+        
+        //bannerView!.frame.origin.y = self.view.frame.size.height - bannerView!.frame.size.height
         self.view.addSubview(bannerView!)
     }
     
-    func initGame() {
-        containerView.frame.origin = CGPoint(x: SIDE_OFFSET, y: TOP_OFFSET)
-        let containerSize: CGFloat = self.view.frame.size.width - SIDE_OFFSET*2
+    func setupScoreManager() {
+        //infoPanel
+        let infoViewFrame = CGRect(x: 0, y: Settings.INFO_PANEL_Y_OFFSET,
+            width: self.view.frame.size.width, height: self.view.frame.size.height/10)
+        infoView = InfoPanelView(frame: infoViewFrame, sideOffset: Settings.GAME_FIELD_SIDE_OFFSET)
+        self.view.addSubview(infoView!)
+        
+        scoreManager = ScoreManager(infoPanel: infoView!)
+        scoreManager.delegate = self
+    }
+    
+    func setupMenuButtons() {
+        restartBtn = UIButton()
+        let image = UIImage(named: "restartBtn") as UIImage?
+        restartBtn.setImage(image, forState: .Normal)
+
+        restartBtn.frame.size = CGSize(width: Settings.MENU_BUTTONS_SIZE, height: Settings.MENU_BUTTONS_SIZE)
+        restartBtn.frame.origin.x = self.view.frame.size.width - restartBtn.frame.size.width - Settings.GAME_FIELD_SIDE_OFFSET
+        restartBtn.frame.origin.y = Settings.MENU_BUTTONS_Y_OFFSET
+        
+        restartBtn.addTarget(self, action: "restart", forControlEvents:.TouchUpInside)
+        self.view.addSubview(restartBtn)
+
+    }
+    
+    func startLevel(levelVO: LevelVO) {
+        currentLevel = levelVO
+        scoreManager.setLevel(levelVO)
+        
+        containerView.frame.origin = CGPoint(x: Settings.GAME_FIELD_SIDE_OFFSET, y: Settings.GAME_FIELD_TOP_OFFSET)
+        let containerSize: CGFloat = self.view.frame.size.width - Settings.GAME_FIELD_SIDE_OFFSET*2
         containerView.frame.size.width = containerSize
-        containerView.frame.size.height = self.view.frame.size.width - SIDE_OFFSET*2
+        containerView.frame.size.height = self.view.frame.size.width - Settings.GAME_FIELD_SIDE_OFFSET*2
         containerView.backgroundColor = Colors.getBackColor()//UIColor.whiteColor()
         
         self.createMainContainer()
         
         self.view.addSubview(containerView)
         
-        let boxesRow = difficulty % 2 == 0 ? SET_3 : SET_5
-        boxSize = (self.view.frame.size.width - SIDE_OFFSET*2) / CGFloat(boxesRow)
-        createBoxes(boxesRow, randomFront: difficulty < 2 ? false : true)
+        self.boxesRow = currentLevel.boxesInRow
+        createBoxes(false)
         
-        setupTopPanel()
     }
     
     func createMainContainer() {
-        let size = containerView.frame.size.width + (MAIN_CONTAINER_OFFSET * 2)
-        let pointX = containerView.frame.origin.x - MAIN_CONTAINER_OFFSET
-        let pointY = containerView.frame.origin.y - MAIN_CONTAINER_OFFSET
+        let containerOffset = Settings.GAME_FIELD_BACK_CONTAINER_OFFSET
+        let size = containerView.frame.size.width + (containerOffset * 2)
+        let pointX = containerView.frame.origin.x - containerOffset
+        let pointY = containerView.frame.origin.y - containerOffset
         var mainContainer = UIView()
         mainContainer.frame.origin = CGPoint(x: pointX, y: pointY)
         mainContainer.frame.size = CGSize(width: size, height: size)
         mainContainer.backgroundColor = Colors.getBackColor()
+        mainContainer.layer.cornerRadius = Settings.getCornerRadiusForBitRect(mainContainer.frame.size.width);
         self.view.addSubview(mainContainer)
     }
     
     func restart() {
-        self.createBoxes(self.boxesRow, randomFront: self.randomFront)
-        if (infoView != nil) { infoView?.clear() }
+        LevelProvider.sharedInstance.resetLevel()
+        self.gameStarted = false
+        self.startNextLevelSafe()
+        self.scoreManager.gameDidRestart()
     }
     
-    func createBoxes(boxesRow: Int, randomFront: Bool)
+    func createBoxes(randomFront: Bool)
     {
         if (boxes.count > 0) {
             for box in boxes { box.removeFromSuperview() }
             boxes = []
         }
-        self.boxesRow = boxesRow
         self.randomFront = randomFront
         let boxesNum = Int(pow(CGFloat(boxesRow),2))
 
         let randomColorsNum = (boxesRow == SET_3) ? 4 : 12
         var backColors:[UIColor] =  Colors.getRandomColors(Colors.getRandomSet(), num: randomColorsNum)
         backColors += backColors
-        backColors.append(UIColor.blackColor())
+        backColors.append(Colors.getEmptyBoxColor())
         backColors = Colors.shuffle(backColors)
         
         let frontColors = Colors.getRandomColors(Colors.getRandomSet(), num: boxesNum)
@@ -112,6 +179,7 @@ class ViewController: UIViewController, InfoPanelProtocol, ADBannerViewDelegate 
         for i in 0...boxesNum-1 {
 
             var newBox:Box
+            var boxSize = Settings.getBoxSize(boxesRow)
             if (randomFront)
             {
                 let frontColor = frontColors[i]
@@ -122,23 +190,13 @@ class ViewController: UIViewController, InfoPanelProtocol, ADBannerViewDelegate 
             {
                 newBox = Box(backColor: backColors[i], size: boxSize)
             }
-            let x:CGFloat = CGFloat(i % boxesRow) * boxSize
-            let y:CGFloat = CGFloat(Int(i / boxesRow)) * boxSize
+            let startCoord: CGFloat = Settings.BOXES_GAP / 2
+            let x:CGFloat = startCoord + CGFloat(i % boxesRow) * (boxSize + Settings.BOXES_GAP)
+            let y:CGFloat = startCoord + CGFloat(Int(i / boxesRow)) * (boxSize + Settings.BOXES_GAP)
             newBox.frame.origin = CGPoint(x: x, y: y)
             containerView.addSubview(newBox)
             boxes += [newBox]
         }
-    }
-    
-    func setupTopPanel() {
-        let topPanel = NSBundle.mainBundle().loadNibNamed("InfoPanel", owner: self, options: nil)
-        infoView = topPanel[0] as? InfoPanelView
-        infoView!.delegate = self
-        println(self.view.frame.size.width - infoView!.frame.size.width)
-        infoView!.frame.size.width = self.view.frame.size.width
-        self.view.addSubview(infoView!)
-        infoView!.scoreLabel.frame.size.width += self.view.frame.size.width - infoView!.frame.size.width
-        infoView!.clear()
     }
     
     func createRandomColor() -> UIColor
@@ -165,7 +223,7 @@ class ViewController: UIViewController, InfoPanelProtocol, ADBannerViewDelegate 
             boxes[0].deactivate()
             boxes[1].close()
             boxes[1].deactivate()
-            infoView?.decreaseScore()
+            scoreManager.pairDidClose()
         }
     }
     
@@ -182,15 +240,28 @@ class ViewController: UIViewController, InfoPanelProtocol, ADBannerViewDelegate 
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         if (!tapAvailable) { return }
+        
+        if isGameOver {
+            self.restart()
+            isGameOver = false
+            return
+        }
+        
         //open box
         let touch = touches.allObjects[0] as UITouch
         let touchLocation = touch.locationInView(self.view)
-        let boxRow: Int = Int((touchLocation.y - TOP_OFFSET) / boxSize);
-        let boxCol: Int = Int((touchLocation.x - SIDE_OFFSET) / boxSize);
+
+        
+        let boxRow: Int = Int((touchLocation.y - Settings.GAME_FIELD_TOP_OFFSET) / (Settings.getBoxSize(boxesRow) + Settings.BOXES_GAP));
+        let boxCol: Int = Int((touchLocation.x - Settings.GAME_FIELD_SIDE_OFFSET) / (Settings.getBoxSize(boxesRow) + Settings.BOXES_GAP));
         
         if (boxRow >= 0 && boxRow < boxesRow && boxCol >= 0 && boxCol < boxesRow) {
             boxes[boxCol + boxRow * boxesRow].open()
-            if !infoView!.isTimerRunning() && self.hasNotActivated() { infoView!.startTimer() }
+            
+            if !gameStarted {
+                gameStarted = true
+                scoreManager.gameDidStart()
+            }
         }
         
         //check boxes
@@ -210,15 +281,9 @@ class ViewController: UIViewController, InfoPanelProtocol, ADBannerViewDelegate 
                 self.blinkView(openedBoxes[0])
                 self.blinkView(openedBoxes[1])
                 
-                if (self.hasNotActivated()) {
-                    let selector : Selector = "closeActivatedBoxes:"
-                    var timer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(10.0), target: self, selector:  selector, userInfo: NSArray(array: openedBoxes), repeats: false)
-                } else {
-                    //level complete
-                    self.blinkView(containerView)
-                    self.stopGame()
-                    self.saveScore()
-                }
+                scoreManager.pairDidComplete()
+                let selector : Selector = "closeActivatedBoxes:"
+                var timer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(10.0), target: self, selector:  selector, userInfo: NSArray(array: openedBoxes), repeats: false)
             }
             else
             {
@@ -234,6 +299,7 @@ class ViewController: UIViewController, InfoPanelProtocol, ADBannerViewDelegate 
         let animationOptions:UIViewAnimationOptions = .CurveEaseIn
         var whiteView = UIView()
         whiteView.frame.size = CGSize(width: view.frame.size.width, height: view.frame.size.height)
+        whiteView.layer.cornerRadius = view.layer.cornerRadius
         
         whiteView.backgroundColor = UIColor.clearColor()
         view.addSubview(whiteView)
@@ -250,7 +316,7 @@ class ViewController: UIViewController, InfoPanelProtocol, ADBannerViewDelegate 
     
     
     func stopGame() {
-        infoView?.stopTimer()
+
     }
     
     func saveScore() {
@@ -287,14 +353,20 @@ class ViewController: UIViewController, InfoPanelProtocol, ADBannerViewDelegate 
     
     func bannerViewActionShouldBegin(banner: ADBannerView!, willLeaveApplication willLeave: Bool) -> Bool
     {
-        infoView?.stopTimer()
+        scoreManager.pause()
         return true
     }
     
     func bannerViewActionDidFinish(banner: ADBannerView!)
     {
-        infoView?.startTimer()
-        infoView?.updateSize()
+        scoreManager.resume()
+    }
+    
+    // tutor delegate
+    
+    func tutorFinished() {
+        self.restartBtn.hidden = false
+        self.tapAvailable = true
     }
 
 }

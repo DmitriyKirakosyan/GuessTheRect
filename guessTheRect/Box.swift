@@ -9,6 +9,8 @@
 import UIKit
 
 class Box: UIView {
+    let SIZE_ACCURACY: CGFloat = 6;
+    
     let frontSquare = UIView()
     let backSquare = UIView()
     
@@ -25,14 +27,21 @@ class Box: UIView {
         self.frame.size = CGSize(width: size, height: size)
         
         self.frontSquare.frame.size = CGSize(width: size, height: size)
-        self.backSquare.frame.size = CGSize(width: size-4, height: size-4)
-        self.backSquare.frame.origin = CGPoint(x: CGFloat(2), y: CGFloat(2))
+        self.backSquare.frame.size = CGSize(width: size, height: size)
+        
         self.frontSquare.backgroundColor = frontColor
         self.backSquare.backgroundColor = backColor
         
+        
+//        self.frontSquare.layer.cornerRadius = Settings.getCornerRadius(self.frontSquare.frame.size.width)
+//        self.backSquare.layer.cornerRadius = Settings.getCornerRadius(self.backSquare.frame.size.width)
+        
         self.addSubview(self.frontSquare)
         
+        self.layer.cornerRadius = Settings.getCornerRadius(self.frontSquare.frame.size.width)
+        self.layer.masksToBounds = true
         let singleFingerTap = UITapGestureRecognizer(target: self, action: Selector("handleTap:"))
+        
         //self.addGestureRecognizer(singleFingerTap)
     }
     

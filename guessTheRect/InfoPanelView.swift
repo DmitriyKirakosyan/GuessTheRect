@@ -15,22 +15,93 @@ protocol InfoPanelProtocol {
 }
 
 class InfoPanelView: UIView {
-    @IBOutlet weak var timerLabel: UILabel!
+    let LABEL_TIME = "time"
+    let LABEL_SCORE = "score"
+    let LABEL_BEST = "best"
+    
+    let TEXT_SIZE_DEVIDER: CGFloat = 10
+    
+    var sideOffset: CGFloat = 10;
+    
+    var timerLabel: UILabel!
     var scoreLabel: UILabel!
+    var bestScoreLabel: UILabel!
     
     var delegate: InfoPanelProtocol?
     
-    var timer: NSTimer?
-    
-    
-    
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    init(frame: CGRect, sideOffset: CGFloat)
+    {
+        super.init(frame: frame)
+        self.sideOffset = sideOffset
+        self.createComponents()
     }
-    
+
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
-        self.createScoreLabel()
+    }
+    
+    func setTime(time: Int) {
+        timerLabel.text = self.timeToStr(time)
+    }
+    func setScore(score: Int) {
+        scoreLabel.text = String(score)
+    }
+
+    func createComponents() {
+
+        var label = self.addTitleLabel("TIME", index: 0);
+        self.addSubview(label)
+        label = self.addTitleLabel("SCORE", index: 1);
+        self.addSubview(label)
+        label = self.addTitleLabel("BEST", index: 2);
+        self.addSubview(label)
+
+        //valuable labels
+        
+        println("expect banner size : ")
+        println(Settings.convertVirtualToRealByHeight(CGFloat(66)))
+        
+        
+        self.timerLabel = self.addTitleLabel("00:00", index: 0, labelY: self.getTextSize())
+        self.scoreLabel = self.addTitleLabel("100", index: 1, labelY: self.getTextSize())
+        self.bestScoreLabel = self.addTitleLabel("0", index: 2, labelY: self.getTextSize())
+        
+        self.addSubview(self.timerLabel)
+        self.addSubview(self.scoreLabel)
+        self.addSubview(self.bestScoreLabel)
+    }
+    
+    func addTitleLabel(text: String, index: Int) -> UILabel {
+        return self.addTitleLabel(text, index: index, labelY: 0)
+    }
+    
+    func addTitleLabel(text: String, index: Int, labelY: CGFloat) -> UILabel {
+        var titleLabelWidth: CGFloat = (self.frame.size.width - (sideOffset * 2)) / 3
+        
+        var label: UILabel = self.createTitleLabel(text, frameWidth: titleLabelWidth)
+        label.textAlignment = index == 0 ? .Left : index == 1 ? .Center : .Right
+        label.frame.origin.x = sideOffset + titleLabelWidth * CGFloat(index)
+        label.frame.origin.y = labelY
+        return label
+    }
+    
+    func createTitleLabel(text: String, frameWidth: CGFloat) -> UILabel {
+        var result: UILabel = UILabel()
+        let textSize = self.getTextSize()
+        result.font = UIFont(name: Settings.mainFont, size: textSize)
+        
+        result.frame.size = CGSize(width: frameWidth, height: textSize)
+        
+        result.text = text;
+        return result;
+    }
+    
+    func getTextSize() -> CGFloat {
+        return Settings.TEXT_SIZE//self.frame.size.width / TEXT_SIZE_DEVIDER
     }
     
     func createScoreLabel() {
@@ -55,33 +126,10 @@ class InfoPanelView: UIView {
         }
     }
     
-    func clear() {
-        self.stopTimer()
-        timerLabel.text = "00:00"
-        if (delegate != nil) {
-            scoreLabel.text = String(delegate!.maxScore())
-        } else {
-            scoreLabel.text = "0"
-        }
-    }
     
     //NOTE This is an unstable solution
     func updateSize() {
         self.frame.size.height = 50
-    }
-    
-    func startTimer() {
-        if timer != nil { timer!.invalidate() }
-        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("onTimer"), userInfo: nil, repeats: true)
-    }
-    func stopTimer() {
-        if (timer != nil) {
-            timer!.invalidate()
-            timer = nil
-        }
-    }
-    func isTimerRunning() -> Bool {
-        return timer != nil
     }
     
     func getScore() -> Int {
@@ -95,30 +143,15 @@ class InfoPanelView: UIView {
         return secs! + (60 * mins!)
     }
     
-    func decreaseScore() {
-        var scoreInt = scoreLabel.text!.toInt()
-        if (scoreInt > 0) {
-            scoreLabel.text = String(scoreInt! - 10)
-        }
+    func timeToStr(time: Int) -> String {
+        let mins: Int = time / 60
+        let secs: Int = time % 60
+        return self.timeToStr(mins, secs: secs)
     }
-    
-    func onTimer() {
-        self.increaseTimerSec()
-    }
-    
-    func increaseTimerSec() {
-        let labelStr = NSString(string: timerLabel.text!)
-        let timeItems = labelStr.componentsSeparatedByString(":")
-        var mins = (timeItems[0] as String).toInt()!
-        var secs = (timeItems[1] as String).toInt()!
-        if (secs != 59) {
-            secs += 1
-        } else if (mins != 59){
-            mins += 1
-            secs = 0
-        }
+    func timeToStr(mins: Int, secs: Int) -> String {
         let minsStr = mins < 10 ? "0" + String(mins) : String(mins)
         let secsStr = secs < 10 ? "0" + String(secs) : String(secs)
-        timerLabel.text = minsStr + ":" + secsStr
+        return minsStr + ":" + secsStr
     }
+    
 }

@@ -167,7 +167,7 @@ class MainViewController: UIViewController {
         var result = UILabel()
         let fontSize = btnSize.width/12
         
-        let font = UIFont(name: Settings.mainFont, size: fontSize)
+        let font: UIFont = UIFont(name: Settings.mainFont, size: fontSize)!
         let dict = [NSFontAttributeName:font]
         let nsText: NSString = text as NSString
         let frameSize = nsText.boundingRectWithSize(CGSize(width: btnSize.width, height: 2000),
