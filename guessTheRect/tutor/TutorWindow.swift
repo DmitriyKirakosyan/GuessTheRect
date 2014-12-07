@@ -26,6 +26,9 @@ class TutorWindow : UIView {
     
     var delegate: TutorDelegate?
     
+    deinit {
+    }
+    
     init(step : TutorStep)
     {
         super.init()

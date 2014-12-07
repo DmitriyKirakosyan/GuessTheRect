@@ -36,14 +36,14 @@ class Settings {
     class var GAME_FIELD_SIDE_OFFSET: CGFloat {
         return convertVirtualToRealByWidth(30)
     }
+    class var GAME_FIELD_BACK_CONTAINER_OFFSET: CGFloat {
+        return convertVirtualToRealByWidth(10)
+    }
     
     class var GAME_FIELD_TOP_OFFSET: CGFloat {
         return convertVirtualToRealByWidth(130) + BANNER_HEIGHT
     }
     
-    class var GAME_FIELD_BACK_CONTAINER_OFFSET: CGFloat {
-        return convertVirtualToRealByWidth(10)
-    }
     
     class var INFO_PANEL_Y_OFFSET: CGFloat {
         return self.convertVirtualToRealByWidth(10) + BANNER_HEIGHT
@@ -68,8 +68,6 @@ class Settings {
     class var BOXES_GAP: CGFloat {
         return convertVirtualToRealByWidth(5)
     }
-    
-    
     
     // Tutor window
 

@@ -9,7 +9,7 @@
 import UIKit
 import iAd
 
-class ViewController: UIViewController, InfoPanelProtocol, ADBannerViewDelegate, ScoreManagerDelegate, TutorControllerDelegate {
+class ViewController: UIViewController, InfoPanelProtocol, ADBannerViewDelegate, ScoreManagerDelegate, TutorControllerDelegate, GameOverControllerDelegate {
     let SET_3 = 3
     let SET_5 = 5
     
@@ -28,7 +28,7 @@ class ViewController: UIViewController, InfoPanelProtocol, ADBannerViewDelegate,
 
     var tapAvailable:Bool = true
     var boxes:[Box] = []
-    var containerView: UIView = UIView()
+    var containerView: UIView?
     
     var currentOpenedBoxes: [Box] = []
     
@@ -36,6 +36,7 @@ class ViewController: UIViewController, InfoPanelProtocol, ADBannerViewDelegate,
     
     var gameStarted: Bool = false
     var isGameOver: Bool = false
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,15 +53,28 @@ class ViewController: UIViewController, InfoPanelProtocol, ADBannerViewDelegate,
     }
     
     func levelCompleted() {
+        //startNextLevelAfterDelay
+        var timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector:  Selector("completeLevel"), userInfo: nil, repeats: false)
+    }
+    
+    func completeLevel() {
         self.startNextLevelSafe()
     }
     
     func gameOver() {
-        self.blinkView(containerView)
+        self.blinkView(containerView!)
         self.stopGame()
         self.saveScore()
         LevelProvider.sharedInstance.resetLevel()
         self.isGameOver = true
+        
+        let gameOverController = GameOverController(container: self.view, score: self.scoreManager.score)
+        gameOverController.delegate = self
+        gameOverController.showGameOver()
+    }
+    func gameOverFinished() {
+        self.restart()
+        isGameOver = false
     }
     
     func showTutor()
@@ -124,26 +138,35 @@ class ViewController: UIViewController, InfoPanelProtocol, ADBannerViewDelegate,
         currentLevel = levelVO
         scoreManager.setLevel(levelVO)
         
-        containerView.frame.origin = CGPoint(x: Settings.GAME_FIELD_SIDE_OFFSET, y: Settings.GAME_FIELD_TOP_OFFSET)
+        let oldContainer = self.containerView
+        
+        containerView = UIView()
+        
+        containerView!.frame.origin = CGPoint(x: Settings.GAME_FIELD_SIDE_OFFSET, y: Settings.GAME_FIELD_TOP_OFFSET)
         let containerSize: CGFloat = self.view.frame.size.width - Settings.GAME_FIELD_SIDE_OFFSET*2
-        containerView.frame.size.width = containerSize
-        containerView.frame.size.height = self.view.frame.size.width - Settings.GAME_FIELD_SIDE_OFFSET*2
-        containerView.backgroundColor = Colors.getBackColor()//UIColor.whiteColor()
+        containerView!.frame.size.width = containerSize
+        containerView!.frame.size.height = self.view.frame.size.width - Settings.GAME_FIELD_SIDE_OFFSET*2
+        containerView!.backgroundColor = Colors.getBackColor()//UIColor.whiteColor()
         
         self.createMainContainer()
-        
-        self.view.addSubview(containerView)
-        
         self.boxesRow = currentLevel.boxesInRow
         createBoxes(false)
-        
+
+        if let existingContainer = oldContainer {
+            UIView.transitionFromView(existingContainer, toView: self.containerView!, duration: 0.4, options: .TransitionFlipFromRight,
+                completion: { finished in
+            })
+            
+        } else {
+            self.view.addSubview(containerView!)
+        }
     }
     
     func createMainContainer() {
         let containerOffset = Settings.GAME_FIELD_BACK_CONTAINER_OFFSET
-        let size = containerView.frame.size.width + (containerOffset * 2)
-        let pointX = containerView.frame.origin.x - containerOffset
-        let pointY = containerView.frame.origin.y - containerOffset
+        let size = containerView!.frame.size.width + (containerOffset * 2)
+        let pointX = containerView!.frame.origin.x - containerOffset
+        let pointY = containerView!.frame.origin.y - containerOffset
         var mainContainer = UIView()
         mainContainer.frame.origin = CGPoint(x: pointX, y: pointY)
         mainContainer.frame.size = CGSize(width: size, height: size)
@@ -194,7 +217,7 @@ class ViewController: UIViewController, InfoPanelProtocol, ADBannerViewDelegate,
             let x:CGFloat = startCoord + CGFloat(i % boxesRow) * (boxSize + Settings.BOXES_GAP)
             let y:CGFloat = startCoord + CGFloat(Int(i / boxesRow)) * (boxSize + Settings.BOXES_GAP)
             newBox.frame.origin = CGPoint(x: x, y: y)
-            containerView.addSubview(newBox)
+            containerView!.addSubview(newBox)
             boxes += [newBox]
         }
     }
@@ -242,8 +265,6 @@ class ViewController: UIViewController, InfoPanelProtocol, ADBannerViewDelegate,
         if (!tapAvailable) { return }
         
         if isGameOver {
-            self.restart()
-            isGameOver = false
             return
         }
         
@@ -320,10 +341,7 @@ class ViewController: UIViewController, InfoPanelProtocol, ADBannerViewDelegate,
     }
     
     func saveScore() {
-        if (infoView != nil) {
-            PlayerData.instance().setLevelPassTime(difficulty+1, passTime: infoView!.getTime())
-            PlayerData.instance().setLevelScore(difficulty+1, score: infoView!.getScore())  
-        }
+        PlayerData.instance().setBestScore(scoreManager.score)
     }
 
     override func didReceiveMemoryWarning() {
@@ -365,6 +383,7 @@ class ViewController: UIViewController, InfoPanelProtocol, ADBannerViewDelegate,
     // tutor delegate
     
     func tutorFinished() {
+
         self.restartBtn.hidden = false
         self.tapAvailable = true
     }

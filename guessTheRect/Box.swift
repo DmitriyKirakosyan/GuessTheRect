@@ -79,7 +79,12 @@ class Box: UIView {
         self.animateSquare()
     }
     
-    func animateSquare()
+    
+    
+    func animateSquare() {
+        self.animateSquare(nil, onComplete: nil)
+    }
+    func animateSquare(target: AnyObject?, onComplete: Selector)
     {
         var views = (frontView: UIView(), backView: UIView())
         if((self.frontSquare.superview) != nil){
@@ -91,11 +96,16 @@ class Box: UIView {
             opened = false;
         }
         
+        
         // set a transition style
         let transitionOptions = getFlipType()
         
         // with no animatiUIon block, and a completion block set to 'nil' this makes a single line of code
-        UIView.transitionFromView(views.frontView, toView: views.backView, duration: 0.4, options: transitionOptions, completion: nil)
+        UIView.transitionFromView(views.frontView, toView: views.backView, duration: 0.4, options: transitionOptions,
+            completion: { finished in
+                if let targetObject: AnyObject = target {
+                }
+        })
     }
     
     func getFlipType() -> UIViewAnimationOptions

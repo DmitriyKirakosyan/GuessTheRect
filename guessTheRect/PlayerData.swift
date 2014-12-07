@@ -15,9 +15,27 @@ class PlayerData {
     let LEVEL_PASS_TIME = "leveLPassTime"
     let LEVEL_SCORE  = "levelScore"
     
+    let BEST_SCORE = "bestScore"
+    
     class func instance() -> PlayerData {
         return _instance
     }
+    
+    func getBestScore() -> Int {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        return userDefaults.integerForKey(BEST_SCORE)
+    }
+    
+    func setBestScore(score: Int) {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let currentScore: Int = userDefaults.integerForKey(BEST_SCORE)
+        if score > currentScore {
+            userDefaults.setInteger(score, forKey: BEST_SCORE)
+            userDefaults.synchronize()
+        }
+    }
+    
+    //depricated methods
     
     func getLevelPassTime(level: Int) -> Int {
         let userDefaults = NSUserDefaults.standardUserDefaults()

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3211F37C1A348B76000E8CE9 /* GameOverWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3211F37B1A348B76000E8CE9 /* GameOverWindow.swift */; };
+		3211F37F1A348BD7000E8CE9 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3211F37E1A348BD7000E8CE9 /* Protocols.swift */; };
+		3211F3811A348EA8000E8CE9 /* GameOverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3211F3801A348EA8000E8CE9 /* GameOverController.swift */; };
+		3211F3841A348ED2000E8CE9 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3211F3831A348ED2000E8CE9 /* Utils.swift */; };
+		3211F3881A349FDF000E8CE9 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3211F3871A349FDF000E8CE9 /* Settings.swift */; };
+		3211F38A1A349FF7000E8CE9 /* GameOverSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3211F3891A349FF7000E8CE9 /* GameOverSettings.swift */; };
 		322318F71A2BCDE6009566CD /* ScoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322318F61A2BCDE6009566CD /* ScoreManager.swift */; };
 		32334B7319D9EFA800413DC9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32334B7219D9EFA800413DC9 /* MainViewController.swift */; };
 		3280A6EF1A27963100BD639D /* restartBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 3280A6ED1A27963100BD639D /* restartBtn.png */; };
@@ -15,7 +21,6 @@
 		3285735F19EE8E5B00A00092 /* PlayerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3285735E19EE8E5B00A00092 /* PlayerData.swift */; };
 		3285736319EEE22F00A00092 /* InfoPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3285736219EEE22F00A00092 /* InfoPanelView.swift */; };
 		3285736519EEEB5300A00092 /* GameBalance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3285736419EEEB5300A00092 /* GameBalance.swift */; };
-		32C0281119F52C5B001B1A96 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C0281019F52C5B001B1A96 /* Settings.swift */; };
 		32C0D2EC1A2BA85800460F12 /* LevelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C0D2EB1A2BA85800460F12 /* LevelProvider.swift */; };
 		32C0D2EE1A2BA91300460F12 /* LevelVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C0D2ED1A2BA91300460F12 /* LevelVO.swift */; };
 		32C0D2F71A2BB05400460F12 /* 1.json in Resources */ = {isa = PBXBuildFile; fileRef = 32C0D2F01A2BB05400460F12 /* 1.json */; };
@@ -58,6 +63,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3211F37B1A348B76000E8CE9 /* GameOverWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameOverWindow.swift; path = gameover/GameOverWindow.swift; sourceTree = "<group>"; };
+		3211F37E1A348BD7000E8CE9 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Protocols.swift; path = protocol/Protocols.swift; sourceTree = "<group>"; };
+		3211F3801A348EA8000E8CE9 /* GameOverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameOverController.swift; path = gameover/GameOverController.swift; sourceTree = "<group>"; };
+		3211F3831A348ED2000E8CE9 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = utils/Utils.swift; sourceTree = "<group>"; };
+		3211F3871A349FDF000E8CE9 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		3211F3891A349FF7000E8CE9 /* GameOverSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverSettings.swift; sourceTree = "<group>"; };
 		322318F61A2BCDE6009566CD /* ScoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreManager.swift; sourceTree = "<group>"; };
 		32334B7219D9EFA800413DC9 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3280A6ED1A27963100BD639D /* restartBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restartBtn.png; sourceTree = "<group>"; };
@@ -66,7 +77,6 @@
 		3285735E19EE8E5B00A00092 /* PlayerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerData.swift; sourceTree = "<group>"; };
 		3285736219EEE22F00A00092 /* InfoPanelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoPanelView.swift; sourceTree = "<group>"; };
 		3285736419EEEB5300A00092 /* GameBalance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameBalance.swift; sourceTree = "<group>"; };
-		32C0281019F52C5B001B1A96 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		32C0D2EB1A2BA85800460F12 /* LevelProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelProvider.swift; sourceTree = "<group>"; };
 		32C0D2ED1A2BA91300460F12 /* LevelVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelVO.swift; sourceTree = "<group>"; };
 		32C0D2F01A2BB05400460F12 /* 1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 1.json; sourceTree = "<group>"; };
@@ -120,6 +130,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3211F37A1A348B50000E8CE9 /* gameover */ = {
+			isa = PBXGroup;
+			children = (
+				3211F37B1A348B76000E8CE9 /* GameOverWindow.swift */,
+				3211F3801A348EA8000E8CE9 /* GameOverController.swift */,
+			);
+			name = gameover;
+			sourceTree = "<group>";
+		};
+		3211F37D1A348BB4000E8CE9 /* protocol */ = {
+			isa = PBXGroup;
+			children = (
+				3211F37E1A348BD7000E8CE9 /* Protocols.swift */,
+			);
+			name = protocol;
+			sourceTree = "<group>";
+		};
+		3211F3821A348EBD000E8CE9 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				3211F3831A348ED2000E8CE9 /* Utils.swift */,
+			);
+			name = utils;
+			sourceTree = "<group>";
+		};
+		3211F3861A349FDF000E8CE9 /* settings */ = {
+			isa = PBXGroup;
+			children = (
+				3211F3871A349FDF000E8CE9 /* Settings.swift */,
+				3211F3891A349FF7000E8CE9 /* GameOverSettings.swift */,
+			);
+			path = settings;
+			sourceTree = "<group>";
+		};
 		32C027F819F52BFA001B1A96 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +226,10 @@
 		32EF770E19D08636006707A5 /* guessTheRect */ = {
 			isa = PBXGroup;
 			children = (
+				3211F3861A349FDF000E8CE9 /* settings */,
+				3211F3821A348EBD000E8CE9 /* utils */,
+				3211F37D1A348BB4000E8CE9 /* protocol */,
+				3211F37A1A348B50000E8CE9 /* gameover */,
 				32FAF19A1A2FA48D00996152 /* tutor */,
 				32EF771119D08636006707A5 /* AppDelegate.swift */,
 				3285735E19EE8E5B00A00092 /* PlayerData.swift */,
@@ -191,7 +239,6 @@
 				32DA8D9819E2F8C700D6968F /* Colors.swift */,
 				3285736219EEE22F00A00092 /* InfoPanelView.swift */,
 				3285736419EEEB5300A00092 /* GameBalance.swift */,
-				32C0281019F52C5B001B1A96 /* Settings.swift */,
 				32C0D2EB1A2BA85800460F12 /* LevelProvider.swift */,
 				32C0D2ED1A2BA91300460F12 /* LevelVO.swift */,
 				322318F61A2BCDE6009566CD /* ScoreManager.swift */,
@@ -371,18 +418,23 @@
 			files = (
 				322318F71A2BCDE6009566CD /* ScoreManager.swift in Sources */,
 				3285735F19EE8E5B00A00092 /* PlayerData.swift in Sources */,
+				3211F3811A348EA8000E8CE9 /* GameOverController.swift in Sources */,
 				32EF773219D143F4006707A5 /* Box.swift in Sources */,
 				32DA8D9919E2F8C700D6968F /* Colors.swift in Sources */,
 				3285736319EEE22F00A00092 /* InfoPanelView.swift in Sources */,
+				3211F3881A349FDF000E8CE9 /* Settings.swift in Sources */,
 				3285736519EEEB5300A00092 /* GameBalance.swift in Sources */,
+				3211F38A1A349FF7000E8CE9 /* GameOverSettings.swift in Sources */,
 				32FAF19E1A2FA4C200996152 /* TutorController.swift in Sources */,
 				32FAF19C1A2FA4AF00996152 /* TutorWindow.swift in Sources */,
 				32EF771419D08636006707A5 /* ViewController.swift in Sources */,
-				32C0281119F52C5B001B1A96 /* Settings.swift in Sources */,
+				3211F3841A348ED2000E8CE9 /* Utils.swift in Sources */,
 				32EF771219D08636006707A5 /* AppDelegate.swift in Sources */,
 				32C0D2EC1A2BA85800460F12 /* LevelProvider.swift in Sources */,
 				32334B7319D9EFA800413DC9 /* MainViewController.swift in Sources */,
+				3211F37C1A348B76000E8CE9 /* GameOverWindow.swift in Sources */,
 				32C0D2EE1A2BA91300460F12 /* LevelVO.swift in Sources */,
+				3211F37F1A348BD7000E8CE9 /* Protocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

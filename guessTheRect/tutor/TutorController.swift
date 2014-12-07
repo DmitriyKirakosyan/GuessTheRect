@@ -32,25 +32,7 @@ class TutorController: TutorDelegate {
         self.flipSquare = UIView()
         self.flipSquare.frame = self.container.frame
         
-        
-        //blur magic
-        UIGraphicsBeginImageContextWithOptions(self.container.bounds.size, true, 0)
-        self.container.layer.renderInContext(UIGraphicsGetCurrentContext())
-        println(self.container.bounds)
-        var imgaa :UIImage = UIGraphicsGetImageFromCurrentImageContext();
-        var ciimage :CIImage = CIImage(image: imgaa)
-        var filter : CIFilter = CIFilter(name:"CIGaussianBlur")
-        filter.setDefaults()
-
-        filter.setValue(ciimage, forKey: kCIInputImageKey)
-        filter.setValue(5, forKey: kCIInputRadiusKey)
-
-        var outputImage : CIImage = filter.outputImage;
-        var finalImage = UIImage(CIImage: outputImage)
-        
-        self.shadowBack = UIImageView(image: finalImage)
-        self.shadowBack.frame.origin = CGPoint(x: self.container.frame.size.width/2 - self.shadowBack.frame.size.width/2, y: self.container.frame.size.height/2 - self.shadowBack.frame.size.height/2)
-        println(self.shadowBack.frame)
+        self.shadowBack = Utils.createBlurScreen(self.container)
         
         self.container.addSubview(self.shadowBack)
 
@@ -72,8 +54,7 @@ class TutorController: TutorDelegate {
             tutorWindow!.delegate = self
             
             if (oldTutorWindow != nil) {
-                let views = (frontView: oldTutorWindow!, backView: self.tutorWindow!)
-                UIView.transitionFromView(views.frontView, toView: views.backView, duration: 0.4, options: .TransitionFlipFromRight, completion: nil)
+                UIView.transitionFromView(oldTutorWindow!, toView: self.tutorWindow!, duration: 0.4, options: .TransitionFlipFromRight, completion: nil)
                 
             } else {
                 self.flipSquare.addSubview(tutorWindow!)
@@ -81,15 +62,25 @@ class TutorController: TutorDelegate {
             currentStepIndex++
         }
         else {
-            if let flip = flipSquare {
-                flip.removeFromSuperview()
-            }
-            if let back = shadowBack {
-                back.removeFromSuperview()
-            }
+            UIView.animateWithDuration(0.5, animations: {
+                if let flip = self.flipSquare {
+                    flip.alpha = 0
+                }
+                if let back = self.shadowBack {
+                    back.alpha = 0
+                }
+            }, completion: { finished in
+                if let flip = self.flipSquare {
+                    flip.removeFromSuperview()
+                }
+                if let back = self.shadowBack {
+                    back.removeFromSuperview()
+                }
+            })
             
             if let ensureDelegate = delegate {
                 ensureDelegate.tutorFinished()
+                delegate = nil
             }
         }
     }
