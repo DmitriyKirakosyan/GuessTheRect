@@ -14,7 +14,7 @@ protocol TutorControllerDelegate {
 
 class TutorController: TutorDelegate {
     
-    let steps = [TutorStep.FindTheSame, TutorStep.AboutTime, TutorStep.ClosingWarning]
+    let steps = [TutorStep.FindTheSame, TutorStep.AboutTime]
     var currentStepIndex = 0
     var container: UIView!
     

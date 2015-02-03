@@ -63,6 +63,7 @@ class ScoreManager: NSObject {
     func pairDidComplete() {
         pairsCompleted++
         score += levelVO.pairPoints
+        self.currentTime += 10
         self.updateInfoPanel()
         
         if pairsCompleted >= levelVO.pairs {
@@ -81,6 +82,9 @@ class ScoreManager: NSObject {
     func updateInfoPanel() {
         self.infoPanel.setTime(currentTime)
         self.infoPanel.setScore(self.score)
+        if (levelVO != nil) {
+            self.infoPanel.setPairsLeft(self.levelVO.pairs - self.pairsCompleted)
+        }
     }
     
     

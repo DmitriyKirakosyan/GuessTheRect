@@ -64,7 +64,7 @@ class TutorWindow : UIView {
 
         textFieldSize = CGSize(width: self.frame.size.width, height: Settings.TUTOR_TEXT_SIZE)
         let bottomPosition = CGPoint(x: 0, y: self.frame.size.height - Settings.TUTOR_TEXT_SIZE - Settings.TUTOR_BOTTOM_TEXT_GAP)
-        self.createTextField(textFieldSize, origin: bottomPosition, text: "touch anyway to continue", textColor: Colors.orangeTextColor())
+        self.createTextField(textFieldSize, origin: bottomPosition, text: "tap to continue", textColor: Colors.orangeTextColor())
     }
     
     
@@ -108,7 +108,7 @@ class TutorWindow : UIView {
         switch (step) {
         case .FindTheSame : return "match the colors"
         case .AboutTime : return "watch the time"
-        case .ClosingWarning : return "This is the longerst tutorial description for testing text field, so you should pay attention for closing squares as it can reduse your score. You can restart the game anytime, anyway :) be on touch"
+        case .ClosingWarning : return "hz"
         default : return "hzhzmbmbm"
         }
     }

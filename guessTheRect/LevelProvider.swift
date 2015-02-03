@@ -10,6 +10,7 @@ import UIKit
 
 class LevelProvider: NSObject {
     let levels = ["1", "2", "3", "4", "5", "6", "7"]
+    let LEVELS_NUM = 25
     var levelVOs: [LevelVO] = []
     
     var currentLevel = 0
@@ -24,7 +25,11 @@ class LevelProvider: NSObject {
     
     override init() {
         super.init()
-        levelVOs = levels.map { self.convertJsonToVO($0) }
+        var levelArray: [String] = []
+        for index in 1...25 {
+            levelArray.append(String(index))
+        }
+        levelVOs = levelArray.map { self.convertJsonToVO($0) }
     }
     
     func resetLevel() {

@@ -233,6 +233,42 @@ class Colors {
         getColor(r: 83, g: 179, b: 142)
         ]
     }
+    
+    class var set11: [UIColor] {
+        return [getColor(r: 171, g: 224, b: 168),
+            getColor(r: 128, g: 181, b: 49),
+            getColor(r: 0, g: 204, b: 51),
+            getColor(r: 236, g: 229, b: 149),
+            getColor(r: 244, g: 225, b: 94),
+            getColor(r: 247, g: 124, b: 83),
+            getColor(r: 236, g: 88, b: 52),
+            getColor(r: 72, g: 166, b: 228),
+            getColor(r: 84, g: 178, b: 94),
+            getColor(r: 46, g: 145, b: 52),
+            getColor(r: 190, g: 193, b: 26),
+            getColor(r: 232, g: 207, b: 0),
+            getColor(r: 239, g: 174, b: 46),
+            getColor(r: 227, g: 113, b: 103),
+            getColor(r: 223, g: 60, b: 25),
+            getColor(r: 36, g: 121, b: 188),
+            getColor(r: 73, g: 190, b: 135),
+            getColor(r: 174, g: 211, b: 227),
+            getColor(r: 153, g: 255, b: 0),
+            getColor(r: 251, g: 106, b: 171),
+            getColor(r: 244, g: 159, b: 178),
+            getColor(r: 153, g: 127, b: 201),
+            getColor(r: 244, g: 139, b: 30),
+            getColor(r: 10, g: 186, b: 209),
+            getColor(r: 17, g: 147, b: 85),
+            getColor(r: 91, g: 137, b: 171),
+            getColor(r: 196, g: 13, b: 33),
+            getColor(r: 250, g: 18, b: 94),
+            getColor(r: 235, g: 94, b: 110),
+            getColor(r: 119, g: 63, b: 160),
+            getColor(r: 252, g: 103, b: 9),
+            getColor(r: 90, g: 98, b: 183)
+        ]
+    }
 
 
     class func getRandomSet() -> [UIColor] {

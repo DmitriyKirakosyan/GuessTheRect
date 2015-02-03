@@ -53,6 +53,11 @@ class Box: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func drawNumber(number: Int) {
+        self.backSquare.addSubview(self.createNumberText(number))
+    }
+
+    
     func isEmpty() -> Bool {
         return self.backSquare.backgroundColor!.isEqual(UIColor.blackColor())
     }
@@ -116,6 +121,24 @@ class Box: UIView {
         case 2: return UIViewAnimationOptions.TransitionFlipFromLeft
         default: return UIViewAnimationOptions.TransitionFlipFromRight
         }
+    }
+    
+    
+    func createNumberText(number: Int) -> UILabel {
+        let label = UILabel()
+        label.font = UIFont(name: Settings.mainFont, size: Settings.getBoxNumberSize(self.frame.size))
+        label.textColor = UIColor.whiteColor()
+        
+        //textLabel.frame.size = frameSize
+        label.textAlignment = .Center
+        label.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        label.numberOfLines = 0
+        label.text = String(number)
+        label.sizeToFit()
+        
+        label.frame.origin = CGPoint(x: self.frame.size.width/2 - label.frame.size.width/2,
+            y: self.frame.size.height/2 - label.frame.size.height/2)
+        return label;
     }
 
 }

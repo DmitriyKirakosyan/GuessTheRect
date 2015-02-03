@@ -1,9 +1,9 @@
 {
 	"boxesInRow": 6,
-	"time": 120,
+	"time": 150,
 	"moves": 18,
-	"pairs": 4,
-	"pair_points": 60,
+	"pairs": 6,
+	"pair_points": 100,
 	"minus_points": 0,
 	"time_plus_for_open": 10
 }

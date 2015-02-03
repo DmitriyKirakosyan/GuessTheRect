@@ -10,22 +10,45 @@ import UIKit
 
 class GameOverSettings {
     class var FONT: String {
-        return "Kristen ITC"
+        return "Tw Cen MT Condensed"
+    }
+    
+    class var TITLE_TEXT_SIZE: CGFloat {
+        return Settings.convertVirtualToRealByWidth(100);
     }
     
     class var TEXT_SIZE: CGFloat {
-        return Settings.convertVirtualToRealByWidth(40)
+        return Settings.convertVirtualToRealByWidth(60)
+    }
+    
+    class var SCORE_VALUE_TEXT_SIZE: CGFloat {
+        return Settings.convertVirtualToRealByWidth(80)
     }
     
     class var TITLE_Y: CGFloat {
         return Settings.convertVirtualToRealByWidth(10)
     }
     
-    class var SCORE_TEXT_Y: CGFloat {
-        return Settings.convertVirtualToRealByWidth(100)
+    class var SCORE_TEXT_X_CENTER: CGFloat {
+        return Settings.convertVirtualToRealByWidth(220)
+    }
+    
+    class var SCORE_VALUE_TEXT_X_CENTER: CGFloat {
+        return Settings.convertVirtualToRealByWidth(380)
     }
 
-    class var BEST_SCORE_TEXT_Y: CGFloat {
+    class var SCORE_TEXT_Y: CGFloat {
+        return Settings.convertVirtualToRealByWidth(140)
+    }
+    class var SCORE_VALUE_TEXT_Y: CGFloat {
+        return Settings.convertVirtualToRealByWidth(120)
+    }
+    
+
+    class var LEVEL_TEXT_Y: CGFloat {
+        return Settings.convertVirtualToRealByWidth(200)
+    }
+    class var LEVEL_VALUE_TEXT_Y: CGFloat {
         return Settings.convertVirtualToRealByWidth(180)
     }
 
@@ -35,7 +58,7 @@ class GameOverSettings {
     
     class var WINDOW_SIZE: CGSize {
         let width = Settings.convertVirtualToRealByWidth(600)
-        let height = Settings.convertVirtualToRealByWidth(500)
+        let height = Settings.convertVirtualToRealByWidth(400)
         return CGSize(width: width, height: height)
     }
 

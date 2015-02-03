@@ -26,6 +26,7 @@ class InfoPanelView: UIView {
     var timerLabel: UILabel!
     var scoreLabel: UILabel!
     var bestScoreLabel: UILabel!
+    var pairsCounterLabel: UILabel!;
     
     var delegate: InfoPanelProtocol?
     
@@ -50,6 +51,9 @@ class InfoPanelView: UIView {
     func setScore(score: Int) {
         scoreLabel.text = String(score)
     }
+    func setPairsLeft(pairsLeft: Int) {
+        pairsCounterLabel.text = "Matches left : " + String(pairsLeft)
+    }
 
     func createComponents() {
 
@@ -70,9 +74,14 @@ class InfoPanelView: UIView {
         self.scoreLabel = self.addTitleLabel("100", index: 1, labelY: self.getTextSize())
         self.bestScoreLabel = self.addTitleLabel("0", index: 2, labelY: self.getTextSize())
         
+        self.pairsCounterLabel = self.createBottomLabel("matches left : 0");
+        
+        self.bestScoreLabel.text = String(PlayerData.instance().getBestScore())
+        
         self.addSubview(self.timerLabel)
         self.addSubview(self.scoreLabel)
         self.addSubview(self.bestScoreLabel)
+        self.addSubview(self.pairsCounterLabel)
     }
     
     func addTitleLabel(text: String, index: Int) -> UILabel {
@@ -100,8 +109,21 @@ class InfoPanelView: UIView {
         return result;
     }
     
+    func createBottomLabel(text: String) -> UILabel {
+        var result: UILabel = UILabel()
+        let textSize = self.getTextSize()
+        result.font = UIFont(name: Settings.mainFont, size: textSize)
+        
+        result.text = text;
+        result.sizeToFit()
+        
+        result.frame.origin = CGPoint(x: self.frame.size.width/2 - result.frame.size.width/2, y: self.frame.size.height - result.frame.size.height)
+
+        return result;
+    }
+    
     func getTextSize() -> CGFloat {
-        return Settings.TEXT_SIZE//self.frame.size.width / TEXT_SIZE_DEVIDER
+        return Settings.TEXT_SIZE
     }
     
     func createScoreLabel() {

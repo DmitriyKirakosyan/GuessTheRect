@@ -34,19 +34,32 @@ class Settings {
     }
 
     class var GAME_FIELD_SIDE_OFFSET: CGFloat {
-        return convertVirtualToRealByWidth(30)
+        return convertVirtualToRealByWidth(20)
     }
     class var GAME_FIELD_BACK_CONTAINER_OFFSET: CGFloat {
         return convertVirtualToRealByWidth(10)
     }
     
+    class var GAME_FIELD_SIZE: CGFloat {
+        return REAL_SCREEN_WIDTH - Settings.GAME_FIELD_SIDE_OFFSET*2
+    }
+    
+    class var GAME_INNER_FIELD_SIZE: CGFloat {
+        return REAL_SCREEN_WIDTH - Settings.GAME_FIELD_SIDE_OFFSET*2 - Settings.GAME_FIELD_BACK_CONTAINER_OFFSET*2
+    }
+    
     class var GAME_FIELD_TOP_OFFSET: CGFloat {
-        return convertVirtualToRealByWidth(130) + BANNER_HEIGHT
+        return convertVirtualToRealByWidth(120) + BANNER_HEIGHT
     }
     
     
     class var INFO_PANEL_Y_OFFSET: CGFloat {
         return self.convertVirtualToRealByWidth(10) + BANNER_HEIGHT
+    }
+    
+    class var INFO_PANEL_FRAME_SIZE: CGSize {
+        return CGSize(width: REAL_SCREEN_WIDTH,
+            height: MENU_BUTTONS_Y_OFFSET + MENU_BUTTONS_SIZE - 10 - INFO_PANEL_Y_OFFSET)
     }
     
     class var TEXT_SIZE: CGFloat {
@@ -88,8 +101,18 @@ class Settings {
         return CGSize(width: width, height: height)
     }
     
+    class func getInfoWindowSize(message: String) -> CGSize {
+        let width = convertVirtualToRealByWidth(600)
+        let height = convertVirtualToRealByWidth(500)
+        return CGSize(width: width, height: height)
+    }
+    
     class func getBoxSize(boxesRow: Int) -> CGFloat {
-        return (REAL_SCREEN_WIDTH - GAME_FIELD_SIDE_OFFSET*2) / CGFloat(boxesRow) - BOXES_GAP
+        return GAME_INNER_FIELD_SIZE / CGFloat(boxesRow) - BOXES_GAP
+    }
+    
+    class func getBoxNumberSize(boxSize: CGSize) -> CGFloat {
+        return boxSize.width / 2
     }
     
     class func getCornerRadius(rectSize: CGFloat) -> CGFloat
