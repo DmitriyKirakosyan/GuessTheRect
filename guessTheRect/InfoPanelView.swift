@@ -26,7 +26,9 @@ class InfoPanelView: UIView {
     var timerLabel: UILabel!
     var scoreLabel: UILabel!
     var bestScoreLabel: UILabel!
-    var pairsCounterLabel: UILabel!;
+    var pairsCounterLabel: UILabel!
+    
+    var timerLabelAlarmer: TextAlarmer!
     
     var delegate: InfoPanelProtocol?
     
@@ -35,6 +37,8 @@ class InfoPanelView: UIView {
         super.init(frame: frame)
         self.sideOffset = sideOffset
         self.createComponents()
+        
+        timerLabelAlarmer = TextAlarmer(label: self.timerLabel)
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -47,6 +51,12 @@ class InfoPanelView: UIView {
     
     func setTime(time: Int) {
         timerLabel.text = self.timeToStr(time)
+        
+        if (time <= 5 && !timerLabelAlarmer.started) {
+            timerLabelAlarmer.start()
+        } else if (time > 5 && timerLabelAlarmer.started) {
+            timerLabelAlarmer.stop()
+        }
     }
     func setScore(score: Int) {
         scoreLabel.text = String(score)
@@ -65,10 +75,6 @@ class InfoPanelView: UIView {
         self.addSubview(label)
 
         //valuable labels
-        
-        println("expect banner size : ")
-        println(Settings.convertVirtualToRealByHeight(CGFloat(66)))
-        
         
         self.timerLabel = self.addTitleLabel("00:00", index: 0, labelY: self.getTextSize())
         self.scoreLabel = self.addTitleLabel("100", index: 1, labelY: self.getTextSize())

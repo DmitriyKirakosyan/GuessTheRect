@@ -12,10 +12,15 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    let FLURRY_APP_KEY = "WX7T4Q4ZZNGWMRPH85XR"
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         LevelProvider.sharedInstance
+        
+        Flurry.startSession(FLURRY_APP_KEY)
+        
         return true
     }
 

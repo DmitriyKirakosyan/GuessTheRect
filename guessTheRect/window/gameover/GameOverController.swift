@@ -38,10 +38,10 @@ class GameOverController: GameOverWindowDelegate {
         self.window = GameOverWindow(score: score, level: level)
         window.frame.origin = CGPoint(x: self.container.frame.size.width/2 - window.frame.size.width/2, y: self.container.frame.size.height/2 - window.frame.size.height/2)
         window.delegate  = self
-        let hz = UIView()
-        hz.frame.size = self.container.frame.size
-        hz.addSubview(window)
-        self.container.addSubview(hz)
+//        let hz = UIView()
+//        hz.frame.size = self.container.frame.size
+//        hz.addSubview(window)
+        self.container.addSubview(window)
     }
     
     func gameOverTouched() {

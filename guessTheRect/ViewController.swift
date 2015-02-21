@@ -9,7 +9,7 @@
 import UIKit
 import iAd
 
-class ViewController: UIViewController, InfoPanelProtocol, ADBannerViewDelegate, ScoreManagerDelegate, TutorControllerDelegate, GameOverControllerDelegate, PauseControllerDelegate, InfoWindowControllerDelegate {
+class ViewController: UIViewController, InfoPanelProtocol, ADBannerViewDelegate, ScoreManagerDelegate, TutorControllerDelegate, GameOverControllerDelegate, PauseControllerDelegate, InfoWindowControllerDelegate, AdManagerDelegate {
     let SET_3 = 3
     let SET_5 = 5
     let LEVEL_WIHOUT_NUMBERS = 6
@@ -24,6 +24,7 @@ class ViewController: UIViewController, InfoPanelProtocol, ADBannerViewDelegate,
     
     var infoView: InfoPanelView?
     var scoreManager: ScoreManager!
+    var adManager: AdManager!
     
     var restartBtn: UIButton!
     var pauseBtn: UIButton!
@@ -43,6 +44,8 @@ class ViewController: UIViewController, InfoPanelProtocol, ADBannerViewDelegate,
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        adManager = AdManager(mainView: self.view)
+        adManager.delegate = self
         self.addBanner()
         self.setupScoreManager()
         self.setupMenuButtons()
@@ -61,6 +64,14 @@ class ViewController: UIViewController, InfoPanelProtocol, ADBannerViewDelegate,
     func levelCompleted() {
         //startNextLevelAfterDelay
         var timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector:  Selector("completeLevel"), userInfo: nil, repeats: false)
+        
+        //log level completed
+        var params:[NSObject: AnyObject] = [
+            StatisticsEvents.PARAM_LEVEL: LevelProvider.sharedInstance.currentLevel,
+            StatisticsEvents.PARAM_SCORE: self.scoreManager.score,
+            StatisticsEvents.PARAM_TIME: self.scoreManager.levelVO.time - self.scoreManager.currentTime
+        ]
+        Flurry.logEvent(StatisticsEvents.LEVEL_COMPLETED, withParameters: params)
     }
     
     func completeLevel() {
@@ -72,18 +83,24 @@ class ViewController: UIViewController, InfoPanelProtocol, ADBannerViewDelegate,
         self.blinkView(containerView!)
         self.stopGame()
         self.saveScore()
-        LevelProvider.sharedInstance.resetLevel()
-        self.isGameOver = true
         
         let gameOverController = GameOverController(container: self.view, score: self.scoreManager.score, level: LevelProvider.sharedInstance.currentLevel)
         gameOverController.delegate = self
         gameOverController.showGameOver()
         
         SoundManager.sharedInstance.playGameOver()
+
+        LevelProvider.sharedInstance.resetLevel()
+        self.isGameOver = true
+        
+        
+        //log game over
+        self.logGameFinished()
     }
     func gameOverFinished() {
         self.restart()
         isGameOver = false
+        adManager.gameOverReached()
     }
     
     func showTutor()
@@ -128,12 +145,12 @@ class ViewController: UIViewController, InfoPanelProtocol, ADBannerViewDelegate,
         restartBtn = MenuButton(imageName: "restartBtn")
         restartBtn.frame.origin.x = self.view.frame.size.width - restartBtn.frame.size.width - Settings.GAME_FIELD_SIDE_OFFSET
         restartBtn.frame.origin.y = Settings.MENU_BUTTONS_Y_OFFSET
-        restartBtn.addTarget(self, action: "restart", forControlEvents:.TouchUpInside)
+        restartBtn.addTarget(self, action: "restartClicked", forControlEvents:.TouchUpInside)
         
         pauseBtn = MenuButton(imageName: "pauseBtn")
         pauseBtn.frame.origin.x = Settings.GAME_FIELD_SIDE_OFFSET
         pauseBtn.frame.origin.y = Settings.MENU_BUTTONS_Y_OFFSET
-        pauseBtn.addTarget(self, action: "pause", forControlEvents:.TouchUpInside)
+        pauseBtn.addTarget(self, action: "pauseClicked", forControlEvents:.TouchUpInside)
         
         self.view.addSubview(restartBtn)
         self.view.addSubview(pauseBtn)
@@ -326,6 +343,9 @@ class ViewController: UIViewController, InfoPanelProtocol, ADBannerViewDelegate,
             if !gameStarted {
                 gameStarted = true
                 scoreManager.gameDidStart()
+                
+                //statistics
+                self.logGameStarted()
             }
         }
         
@@ -434,6 +454,54 @@ class ViewController: UIViewController, InfoPanelProtocol, ADBannerViewDelegate,
 
         self.restartBtn.hidden = false
         self.tapAvailable = true
+        
+        Flurry.logEvent("Tutor_Completed");
+    }
+    
+    // add manager delegate
+    
+    func adDidLoad() {
+        self.pause()
+    }
+    
+    func adDidUnload() {
+        //hzhz
+    }
+    
+    
+    // UI handlers
+    
+    func pauseClicked() {
+        self.pause()
+        
+        Flurry.logEvent(StatisticsEvents.PAUSE_BTN_CLICKED)
+    }
+    
+    func restartClicked() {
+        self.restart()
+
+        Flurry.logEvent(StatisticsEvents.RESET_BTN_CLICKED)
+    }
+    
+    
+    //logs TODO: move it from here
+    
+    func logGameStarted() {
+        Flurry.logEvent(StatisticsEvents.GAME_SESSION_DURATION, timed: true)
+    }
+    
+    func logGameFinished() {
+        //log time
+        Flurry.endTimedEvent(StatisticsEvents.GAME_SESSION_DURATION, withParameters: nil)
+        
+        //log result
+        var params:[NSObject: AnyObject] = [
+            StatisticsEvents.PARAM_LEVEL: LevelProvider.sharedInstance.currentLevel,
+            StatisticsEvents.PARAM_SCORE: self.scoreManager.score
+        ]
+        
+        Flurry.logEvent(StatisticsEvents.GAME_OVER, withParameters: params)
+
     }
 
 }

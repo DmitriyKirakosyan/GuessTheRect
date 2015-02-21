@@ -73,6 +73,7 @@
 		32BF44EC1A61B22800AB2C83 /* 10.json in Resources */ = {isa = PBXBuildFile; fileRef = 32BF44DA1A61B22800AB2C83 /* 10.json */; };
 		32BF44ED1A61B22800AB2C83 /* 9.json in Resources */ = {isa = PBXBuildFile; fileRef = 32BF44DB1A61B22800AB2C83 /* 9.json */; };
 		32BF44EE1A61B22800AB2C83 /* 8.json in Resources */ = {isa = PBXBuildFile; fileRef = 32BF44DC1A61B22800AB2C83 /* 8.json */; };
+		32BFCC6D1A95284E00F174F9 /* AdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BFCC6C1A95284E00F174F9 /* AdManager.swift */; };
 		32C0D2EC1A2BA85800460F12 /* LevelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C0D2EB1A2BA85800460F12 /* LevelProvider.swift */; };
 		32C0D2EE1A2BA91300460F12 /* LevelVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C0D2ED1A2BA91300460F12 /* LevelVO.swift */; };
 		32C0D2F71A2BB05400460F12 /* 1.json in Resources */ = {isa = PBXBuildFile; fileRef = 32C0D2F01A2BB05400460F12 /* 1.json */; };
@@ -84,6 +85,10 @@
 		32C0D2FD1A2BB05400460F12 /* 7.json in Resources */ = {isa = PBXBuildFile; fileRef = 32C0D2F61A2BB05400460F12 /* 7.json */; };
 		32C0E45B1A7E686C0061805D /* InfoWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C0E45A1A7E686C0061805D /* InfoWindowController.swift */; };
 		32C0E45D1A7E6A8A0061805D /* help_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 32C0E45C1A7E6A8A0061805D /* help_4.png */; };
+		32C26DBF1A97959F00670E82 /* TextAlarmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C26DBE1A97959F00670E82 /* TextAlarmer.swift */; };
+		32C26DC31A97DB4200670E82 /* libFlurry_6.2.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32C26DC21A97DB4200670E82 /* libFlurry_6.2.0.a */; };
+		32C26DC61A97DDF300670E82 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32C26DC51A97DDF300670E82 /* SystemConfiguration.framework */; };
+		32C26DCA1A99020200670E82 /* StatisticsEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C26DC91A99020200670E82 /* StatisticsEvents.swift */; };
 		32C3A6401A6D37FF004AFC29 /* GameOverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C3A6371A6D37FF004AFC29 /* GameOverController.swift */; };
 		32C3A6411A6D37FF004AFC29 /* GameOverWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C3A6381A6D37FF004AFC29 /* GameOverWindow.swift */; };
 		32C3A6421A6D37FF004AFC29 /* PauseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C3A63B1A6D37FF004AFC29 /* PauseController.swift */; };
@@ -188,6 +193,7 @@
 		32BF44DA1A61B22800AB2C83 /* 10.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 10.json; sourceTree = "<group>"; };
 		32BF44DB1A61B22800AB2C83 /* 9.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 9.json; sourceTree = "<group>"; };
 		32BF44DC1A61B22800AB2C83 /* 8.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 8.json; sourceTree = "<group>"; };
+		32BFCC6C1A95284E00F174F9 /* AdManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdManager.swift; path = ad/AdManager.swift; sourceTree = "<group>"; };
 		32C0D2EB1A2BA85800460F12 /* LevelProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelProvider.swift; sourceTree = "<group>"; };
 		32C0D2ED1A2BA91300460F12 /* LevelVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelVO.swift; sourceTree = "<group>"; };
 		32C0D2F01A2BB05400460F12 /* 1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 1.json; sourceTree = "<group>"; };
@@ -199,6 +205,12 @@
 		32C0D2F61A2BB05400460F12 /* 7.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 7.json; sourceTree = "<group>"; };
 		32C0E45A1A7E686C0061805D /* InfoWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoWindowController.swift; sourceTree = "<group>"; };
 		32C0E45C1A7E6A8A0061805D /* help_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help_4.png; sourceTree = "<group>"; };
+		32C26DBE1A97959F00670E82 /* TextAlarmer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextAlarmer.swift; path = utils/TextAlarmer.swift; sourceTree = "<group>"; };
+		32C26DC11A97DB4200670E82 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		32C26DC21A97DB4200670E82 /* libFlurry_6.2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_6.2.0.a; sourceTree = "<group>"; };
+		32C26DC51A97DDF300670E82 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		32C26DC71A97E17800670E82 /* guessTheRect-Bridging-Hearder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "guessTheRect-Bridging-Hearder.h"; sourceTree = "<group>"; };
+		32C26DC91A99020200670E82 /* StatisticsEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatisticsEvents.swift; path = statistics/StatisticsEvents.swift; sourceTree = "<group>"; };
 		32C3A6371A6D37FF004AFC29 /* GameOverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverController.swift; sourceTree = "<group>"; };
 		32C3A6381A6D37FF004AFC29 /* GameOverWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverWindow.swift; sourceTree = "<group>"; };
 		32C3A63B1A6D37FF004AFC29 /* PauseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PauseController.swift; sourceTree = "<group>"; };
@@ -235,6 +247,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32C26DC61A97DDF300670E82 /* SystemConfiguration.framework in Frameworks */,
+				32C26DC31A97DB4200670E82 /* libFlurry_6.2.0.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				3211F3831A348ED2000E8CE9 /* Utils.swift */,
+				32C26DBE1A97959F00670E82 /* TextAlarmer.swift */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -285,6 +300,14 @@
 				2C572E2C1A864D7D009B999C /* Strings.swift */,
 			);
 			path = settings;
+			sourceTree = "<group>";
+		};
+		32BFCC6B1A95282D00F174F9 /* ad */ = {
+			isa = PBXGroup;
+			children = (
+				32BFCC6C1A95284E00F174F9 /* AdManager.swift */,
+			);
+			name = ad;
 			sourceTree = "<group>";
 		};
 		32C027F819F52BFA001B1A96 /* Resources */ = {
@@ -374,6 +397,23 @@
 			path = levelsInfo;
 			sourceTree = "<group>";
 		};
+		32C26DC01A97DB4100670E82 /* frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				32C26DC11A97DB4200670E82 /* Flurry.h */,
+				32C26DC21A97DB4200670E82 /* libFlurry_6.2.0.a */,
+			);
+			path = frameworks;
+			sourceTree = "<group>";
+		};
+		32C26DC81A9901D800670E82 /* statistics */ = {
+			isa = PBXGroup;
+			children = (
+				32C26DC91A99020200670E82 /* StatisticsEvents.swift */,
+			);
+			name = statistics;
+			sourceTree = "<group>";
+		};
 		32C3A6351A6D37FF004AFC29 /* window */ = {
 			isa = PBXGroup;
 			children = (
@@ -424,6 +464,7 @@
 		32EF770319D08636006707A5 = {
 			isa = PBXGroup;
 			children = (
+				32C26DC51A97DDF300670E82 /* SystemConfiguration.framework */,
 				32EF770E19D08636006707A5 /* guessTheRect */,
 				32EF772419D08636006707A5 /* guessTheRectTests */,
 				32EF770D19D08636006707A5 /* Products */,
@@ -442,6 +483,9 @@
 		32EF770E19D08636006707A5 /* guessTheRect */ = {
 			isa = PBXGroup;
 			children = (
+				32C26DC81A9901D800670E82 /* statistics */,
+				32C26DC01A97DB4100670E82 /* frameworks */,
+				32BFCC6B1A95282D00F174F9 /* ad */,
 				32C3A6351A6D37FF004AFC29 /* window */,
 				3211F3861A349FDF000E8CE9 /* settings */,
 				3211F3821A348EBD000E8CE9 /* utils */,
@@ -464,6 +508,7 @@
 				32EF771A19D08636006707A5 /* LaunchScreen.xib */,
 				32C027F819F52BFA001B1A96 /* Resources */,
 				32EF770F19D08636006707A5 /* Supporting Files */,
+				32C26DC71A97E17800670E82 /* guessTheRect-Bridging-Hearder.h */,
 			);
 			path = guessTheRect;
 			sourceTree = "<group>";
@@ -677,9 +722,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				322318F71A2BCDE6009566CD /* ScoreManager.swift in Sources */,
+				32C26DBF1A97959F00670E82 /* TextAlarmer.swift in Sources */,
 				32C3A6431A6D37FF004AFC29 /* PauseWindow.swift in Sources */,
 				3285735F19EE8E5B00A00092 /* PlayerData.swift in Sources */,
 				32EF773219D143F4006707A5 /* Box.swift in Sources */,
+				32C26DCA1A99020200670E82 /* StatisticsEvents.swift in Sources */,
 				32DA8D9919E2F8C700D6968F /* Colors.swift in Sources */,
 				3285736319EEE22F00A00092 /* InfoPanelView.swift in Sources */,
 				3211F3881A349FDF000E8CE9 /* Settings.swift in Sources */,
@@ -693,6 +740,7 @@
 				32EF771219D08636006707A5 /* AppDelegate.swift in Sources */,
 				32C3A6441A6D37FF004AFC29 /* TutorController.swift in Sources */,
 				32C0D2EC1A2BA85800460F12 /* LevelProvider.swift in Sources */,
+				32BFCC6D1A95284E00F174F9 /* AdManager.swift in Sources */,
 				32C3A6401A6D37FF004AFC29 /* GameOverController.swift in Sources */,
 				2C5DAC601A83F1E700765196 /* SoundManager.swift in Sources */,
 				32C3A6451A6D37FF004AFC29 /* TutorWindow.swift in Sources */,
@@ -838,9 +886,15 @@
 				INFOPLIST_FILE = guessTheRect/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/guessTheRect/frameworks",
+				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "da6ff647-7193-48fc-898e-215f4c8e044b";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "guessTheRect/guessTheRect-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -855,9 +909,15 @@
 				INFOPLIST_FILE = guessTheRect/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/guessTheRect/frameworks",
+				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "da6ff647-7193-48fc-898e-215f4c8e044b";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "guessTheRect/guessTheRect-Bridging-Header.h";
 			};
 			name = Release;
 		};
