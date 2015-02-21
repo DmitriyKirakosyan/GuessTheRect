@@ -28,6 +28,7 @@ class MainViewController: UIViewController {
         
         println("score for level 1 : \(PlayerData.instance().getLevelScore(1))")
         println("time for level 1 : \(PlayerData.instance().getLevelPassTime(1))")
+        
     }
     
     func createBtns() {
@@ -120,7 +121,7 @@ class MainViewController: UIViewController {
                 let subHeight:CGFloat = (btn.frame.size.height-offset) / CGFloat(items) - offset
 
                 var frontColor = multiColor ? self.getRndColor() : UIColor.whiteColor()
-                var subView = Box(frontColor: frontColor, backColor: self.getRndColor(), size: subWidth)
+                var subView = Box(frontColor: frontColor, backColor: self.getRndColor(), size: subWidth, boxNumber: 0)
                 let subX: CGFloat = offset + CGFloat(i) * (subWidth+offset)
                 let subY: CGFloat = offset + CGFloat(j) * (subHeight+offset)
                 subView.frame.origin = CGPoint(x: subX, y: subY)

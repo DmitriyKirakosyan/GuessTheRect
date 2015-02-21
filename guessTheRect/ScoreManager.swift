@@ -24,6 +24,8 @@ class ScoreManager: NSObject {
     
     var timer: NSTimer?
     
+    var completedBoxes: [Int] = []
+    
     var delegate: ScoreManagerDelegate?
     
     init(infoPanel: InfoPanelView) {
@@ -35,16 +37,21 @@ class ScoreManager: NSObject {
     func setLevel(levelVO: LevelVO) {
         self.levelVO = levelVO
         pairsCompleted = 0
+        completedBoxes = []
         currentTime = self.levelVO.time
         self.updateInfoPanel()
     }
     
     func pause() {
-        self.stopTimer()
+        if !self.isLevelCompleted() {
+            self.stopTimer()
+        }
     }
     
     func resume() {
-        self.startTimer()
+        if !self.isLevelCompleted() {
+            self.startTimer()
+        }
     }
    
     func gameDidStart() {
@@ -60,14 +67,17 @@ class ScoreManager: NSObject {
         self.score = 0
     }
     
-    func pairDidComplete() {
-        pairsCompleted++
-        score += levelVO.pairPoints
-        self.currentTime += 10
-        self.updateInfoPanel()
-        
-        if pairsCompleted >= levelVO.pairs {
-            self.delegate?.levelCompleted()
+    func pairDidComplete(boxNumber: Int) {
+        if find(completedBoxes, boxNumber) == nil {
+            completedBoxes.append(boxNumber)
+            pairsCompleted++
+            score += levelVO.pairPoints
+            self.currentTime += 10
+            self.updateInfoPanel()
+            
+            if self.isLevelCompleted() {
+                self.delegate?.levelCompleted()
+            }
         }
     }
     
@@ -100,6 +110,10 @@ class ScoreManager: NSObject {
     }
     func isTimerRunning() -> Bool {
         return timer != nil
+    }
+    
+    func isLevelCompleted() -> Bool {
+        return pairsCompleted >= levelVO.pairs
     }
 
     func onTimer() {

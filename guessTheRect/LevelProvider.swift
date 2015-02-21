@@ -10,7 +10,7 @@ import UIKit
 
 class LevelProvider: NSObject {
     let levels = ["1", "2", "3", "4", "5", "6", "7"]
-    let LEVELS_NUM = 25
+    let LEVELS_NUM = 50
     var levelVOs: [LevelVO] = []
     
     var currentLevel = 0
@@ -26,7 +26,7 @@ class LevelProvider: NSObject {
     override init() {
         super.init()
         var levelArray: [String] = []
-        for index in 1...25 {
+        for index in 1...LEVELS_NUM {
             levelArray.append(String(index))
         }
         levelVOs = levelArray.map { self.convertJsonToVO($0) }
@@ -58,7 +58,10 @@ class LevelProvider: NSObject {
         let pairs = jsonResult["pairs"] as Int
         let pair_points = jsonResult["pair_points"] as Int
         let minus_points = jsonResult["minus_points"] as Int
+        let close_time = jsonResult["close_time"] as Int
+        let show_numbers = jsonResult["show_numbers"] as Bool
         
-        return LevelVO(boxesInRow: boxesInRow, time: time, pairs: pairs, pairPoints: pair_points, minusPoints: minus_points)
+        return LevelVO(boxesInRow: boxesInRow, time: time, pairs: pairs, pairPoints: pair_points,
+            minusPoints: minus_points, closeTime: close_time, showNumbers: show_numbers)
     }
 }

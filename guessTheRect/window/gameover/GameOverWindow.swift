@@ -68,7 +68,7 @@ class GameOverWindow: UIView {
         scoreValueLabel.frame.origin.y = GameOverSettings.SCORE_VALUE_TEXT_Y
         
 
-        if (PlayerData.instance().getBestScore() <= self.score) {
+        if true {//(PlayerData.instance().getBestScore() <= self.score) {
             self.addBestIcon(CGPoint(x: scoreValueLabel.frame.origin.x + scoreValueLabel.frame.size.width + 20, y: GameOverSettings.SCORE_TEXT_Y))
         }
 
@@ -122,6 +122,7 @@ class GameOverWindow: UIView {
         let image  = UIImage(named: self.getImageName())
         self.pic = UIImageView(image: image)
         pic.frame.origin = position
+        pic.frame.size = GameOverSettings.BEST_ICON_SIZE
         
         self.addSubview(pic)
     }

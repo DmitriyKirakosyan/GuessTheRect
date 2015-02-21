@@ -1,0 +1,10 @@
+{
+	"boxesInRow": 7,
+	"time": 240,
+	"moves": 18,
+	"pairs": 18,
+	"pair_points": 1050,
+	"minus_points": 25,
+	"time_plus_for_open": 5,
+	"close_time": 10
+}

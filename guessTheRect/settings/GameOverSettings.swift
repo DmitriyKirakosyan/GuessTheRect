@@ -61,6 +61,12 @@ class GameOverSettings {
         let height = Settings.convertVirtualToRealByWidth(400)
         return CGSize(width: width, height: height)
     }
+    
+    class var BEST_ICON_SIZE: CGSize {
+        let width = Settings.convertVirtualToRealByWidth(100)
+        let height = Settings.convertVirtualToRealByWidth(50)
+        return CGSize(width: width, height: height)
+    }
 
 
 

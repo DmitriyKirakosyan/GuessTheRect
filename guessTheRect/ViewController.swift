@@ -49,6 +49,8 @@ class ViewController: UIViewController, InfoPanelProtocol, ADBannerViewDelegate,
         self.createMainContainer()
         self.startNextLevelSafe()
         self.showTutor()
+        
+        SoundManager.sharedInstance.playBackground()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -63,6 +65,7 @@ class ViewController: UIViewController, InfoPanelProtocol, ADBannerViewDelegate,
     
     func completeLevel() {
         self.startNextLevelSafe()
+        SoundManager.sharedInstance.playLevelComplete()
     }
     
     func gameOver() {
@@ -75,6 +78,8 @@ class ViewController: UIViewController, InfoPanelProtocol, ADBannerViewDelegate,
         let gameOverController = GameOverController(container: self.view, score: self.scoreManager.score, level: LevelProvider.sharedInstance.currentLevel)
         gameOverController.delegate = self
         gameOverController.showGameOver()
+        
+        SoundManager.sharedInstance.playGameOver()
     }
     func gameOverFinished() {
         self.restart()
@@ -228,21 +233,28 @@ class ViewController: UIViewController, InfoPanelProtocol, ADBannerViewDelegate,
 
             var newBox:Box
             var boxSize = Settings.getBoxSize(boxesRow)
+            
+            let backColor = shuffledBackColors[i]
+
+            //box index
+            var boxIndex: Int = -1
+            if let positiveIndex = find(backColors, backColor) {
+                boxIndex = positiveIndex
+            }
             if (randomFront)
             {
                 let frontColor = frontColors[i]
-                let backColor = shuffledBackColors[i]
-                newBox = Box(frontColor: frontColor, backColor: backColor, size: boxSize)
+                newBox = Box(frontColor: frontColor, backColor: backColor, size: boxSize, boxNumber: boxIndex)
             }
             else
             {
-                newBox = Box(backColor: shuffledBackColors[i], size: boxSize)
+                newBox = Box(backColor: backColor, size: boxSize, boxNumber: boxIndex)
             }
             //number on the box
-            if (LevelProvider.sharedInstance.currentLevel < LEVEL_WIHOUT_NUMBERS) {
-                let index = find(backColors, newBox.backSquare.backgroundColor!)
-                if let nonNilIndex = index {
-                    newBox.drawNumber(index!)
+            if self.currentLevel.showNumbers {
+                
+                if boxIndex >= 0 {
+                    newBox.drawNumber(boxIndex)
                 }
             }
             
@@ -254,20 +266,14 @@ class ViewController: UIViewController, InfoPanelProtocol, ADBannerViewDelegate,
             boxes += [newBox]
         }
         
-        if (LevelProvider.sharedInstance.currentLevel == LEVEL_WIHOUT_NUMBERS)
-        {
-            self.showInfoWindow("WITHOUT NUMBERS NOW")
+        if !self.currentLevel.showNumbers {
+            self.showInfoWindow(Strings.INFO_NOW_WITHOUT_NUMBERS)
+        }
+        if self.currentLevel.closeTime > 0 {
+            self.showInfoWindow(Strings.INFO_BACK_FLIP)
         }
     }
     
-    func createRandomColor() -> UIColor
-    {
-        let red:CGFloat = CGFloat(random() % 256)/255
-        let green:CGFloat = CGFloat(random() % 256)/255
-        let blue:CGFloat = CGFloat(random() % 256)/255
-        return UIColor(red: red, green: green, blue: blue, alpha: 1.0)
-    }
-
     func closeBoxes(timer:NSTimer)
     {
         let boxes:[Box] = currentOpenedBoxes//timer.userInfo as [Box]
@@ -278,7 +284,7 @@ class ViewController: UIViewController, InfoPanelProtocol, ADBannerViewDelegate,
     }
     
     func closeActivatedBoxes(timer: NSTimer) {
-        if self.hasNotActivated() {
+        if self.hasNotActivated() && !self.isGameOver {
             let boxes:[Box] = timer.userInfo as [Box]
             boxes[0].close()
             boxes[0].deactivate()
@@ -340,9 +346,13 @@ class ViewController: UIViewController, InfoPanelProtocol, ADBannerViewDelegate,
                 self.blinkView(openedBoxes[0])
                 self.blinkView(openedBoxes[1])
                 
-                scoreManager.pairDidComplete()
-//                let selector : Selector = "closeActivatedBoxes:"
-//                var timer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(10.0), target: self, selector:  selector, userInfo: NSArray(array: openedBoxes), repeats: false)
+                scoreManager.pairDidComplete(openedBoxes[0].boxNumber)
+                
+                //whether it's need to close them back
+                if (currentLevel.closeTime > 0)
+                {
+                    var timer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(currentLevel.closeTime), target: self, selector:  "closeActivatedBoxes:", userInfo: NSArray(array: openedBoxes), repeats: false)
+                }
             }
             else
             {

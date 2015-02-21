@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class Box: UIView {
     let SIZE_ACCURACY: CGFloat = 6;
@@ -17,13 +18,17 @@ class Box: UIView {
     var opened:Bool = false
     var activated:Bool = false;
     
-    convenience init(backColor: UIColor, size: CGFloat)
+    let boxNumber: Int = 0
+    
+    convenience init(backColor: UIColor, size: CGFloat, boxNumber: Int)
     {
-        self.init(frontColor: Colors.getSolidFrontColor(), backColor: backColor, size: size)
+        self.init(frontColor: Colors.getSolidFrontColor(), backColor: backColor, size: size, boxNumber: boxNumber)
     }
     
-    init(frontColor: UIColor, backColor:UIColor, size: CGFloat) {
+    init(frontColor: UIColor, backColor:UIColor, size: CGFloat, boxNumber: Int) {
         super.init()
+        
+        self.boxNumber = boxNumber
         self.frame.size = CGSize(width: size, height: size)
         
         self.frontSquare.frame.size = CGSize(width: size, height: size)
@@ -67,12 +72,18 @@ class Box: UIView {
     
     func open()
     {
-        if (!opened) { self.animateSquare() }
+        if (!opened) {
+            self.animateSquare()
+            SoundManager.sharedInstance.playFlip()
+        }
     }
     
     func close()
     {
-        if (opened) { self.animateSquare() }
+        if (opened) {
+            self.animateSquare()
+            SoundManager.sharedInstance.playBackFlip()
+        }
     }
     
     func switchSide() {

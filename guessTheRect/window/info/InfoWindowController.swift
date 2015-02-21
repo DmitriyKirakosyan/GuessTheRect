@@ -33,7 +33,7 @@ class InfoWindowController: InfoWindowDelegate {
     }
     
     func showInfoView() {
-        self.window = InfoWindow(message: self.message)
+        self.window = InfoWindow(message: self.message, icon: self.getIconName(self.message))
         window.frame.origin = CGPoint(x: self.container.frame.size.width/2 - window.frame.size.width/2, y: self.container.frame.size.height/2 - window.frame.size.height/2)
         window.delegate  = self
         self.container.addSubview(window)
@@ -52,5 +52,16 @@ class InfoWindowController: InfoWindowDelegate {
         })
         
         //remove from container
+    }
+    
+    func getIconName(message: String) -> String {
+        var result: String = ""
+        if message == Strings.INFO_NOW_WITHOUT_NUMBERS {
+            result = "help_4.png"
+        } else if message == Strings.INFO_BACK_FLIP {
+            result = "help_3.png"
+        }
+        
+        return result
     }
 }

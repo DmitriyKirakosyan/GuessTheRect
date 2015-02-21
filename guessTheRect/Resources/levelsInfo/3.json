@@ -1,9 +1,11 @@
 {
 	"boxesInRow": 4,
 	"time": 60,
-	"moves": 7,
+	"show_numbers": true,
+	"moves": 5,
 	"pairs": 3,
-	"pair_points": 30,
+	"pair_points": 10,
 	"minus_points": 0,
-	"time_plus_for_open": 10
+	"time_plus_for_open": 5,
+	"close_time": 0
 }

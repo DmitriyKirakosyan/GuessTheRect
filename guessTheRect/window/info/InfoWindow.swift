@@ -15,12 +15,14 @@ protocol InfoWindowDelegate {
 class InfoWindow : UIView {
     var pic: UIView!
     var message: String!
+    var icon: String!
     var delegate: InfoWindowDelegate?
     
-    init(message: String)
+    init(message: String, icon: String)
     {
         super.init()
         self.message = message
+        self.icon = icon
         self.frame.size = Settings.getInfoWindowSize(message)
         self.backgroundColor = UIColor.whiteColor()
         self.layer.cornerRadius = Settings.getCornerRadiusForBitRect(self.frame.size.width)
@@ -76,16 +78,12 @@ class InfoWindow : UIView {
     
     func placeThePic() {
         
-        let image  = UIImage(named: self.getImageName())
+        let image  = UIImage(named: self.icon)
         self.pic = UIImageView(image: image)
         pic.frame.origin.x = self.frame.size.width / 2 - pic.frame.size.width/2
         pic.frame.origin.y = self.frame.size.height/2 - pic.frame.size.height/2
         
         self.addSubview(pic)
-    }
-    
-    func getImageName() -> String {
-        return "help_4.png"
     }
     
 }

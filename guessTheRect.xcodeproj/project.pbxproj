@@ -7,6 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C572E131A8647F8009B999C /* 26.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C572DFA1A8647F8009B999C /* 26.json */; };
+		2C572E141A8647F8009B999C /* 27.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C572DFB1A8647F8009B999C /* 27.json */; };
+		2C572E151A8647F8009B999C /* 28.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C572DFC1A8647F8009B999C /* 28.json */; };
+		2C572E161A8647F8009B999C /* 29.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C572DFD1A8647F8009B999C /* 29.json */; };
+		2C572E171A8647F8009B999C /* 30.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C572DFE1A8647F8009B999C /* 30.json */; };
+		2C572E181A8647F8009B999C /* 31.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C572DFF1A8647F8009B999C /* 31.json */; };
+		2C572E191A8647F8009B999C /* 32.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C572E001A8647F8009B999C /* 32.json */; };
+		2C572E1A1A8647F8009B999C /* 33.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C572E011A8647F8009B999C /* 33.json */; };
+		2C572E1B1A8647F8009B999C /* 34.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C572E021A8647F8009B999C /* 34.json */; };
+		2C572E1C1A8647F8009B999C /* 35.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C572E031A8647F8009B999C /* 35.json */; };
+		2C572E1D1A8647F8009B999C /* 36.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C572E041A8647F8009B999C /* 36.json */; };
+		2C572E1E1A8647F8009B999C /* 37.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C572E051A8647F8009B999C /* 37.json */; };
+		2C572E1F1A8647F8009B999C /* 38.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C572E061A8647F8009B999C /* 38.json */; };
+		2C572E201A8647F8009B999C /* 39.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C572E071A8647F8009B999C /* 39.json */; };
+		2C572E211A8647F8009B999C /* 40.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C572E081A8647F8009B999C /* 40.json */; };
+		2C572E221A8647F8009B999C /* 41.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C572E091A8647F8009B999C /* 41.json */; };
+		2C572E231A8647F8009B999C /* 42.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C572E0A1A8647F8009B999C /* 42.json */; };
+		2C572E241A8647F8009B999C /* 43.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C572E0B1A8647F8009B999C /* 43.json */; };
+		2C572E251A8647F8009B999C /* 44.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C572E0C1A8647F8009B999C /* 44.json */; };
+		2C572E261A8647F8009B999C /* 45.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C572E0D1A8647F8009B999C /* 45.json */; };
+		2C572E271A8647F8009B999C /* 46.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C572E0E1A8647F8009B999C /* 46.json */; };
+		2C572E281A8647F8009B999C /* 47.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C572E0F1A8647F8009B999C /* 47.json */; };
+		2C572E291A8647F8009B999C /* 48.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C572E101A8647F8009B999C /* 48.json */; };
+		2C572E2A1A8647F8009B999C /* 49.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C572E111A8647F8009B999C /* 49.json */; };
+		2C572E2B1A8647F8009B999C /* 50.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C572E121A8647F8009B999C /* 50.json */; };
+		2C572E2D1A864D7D009B999C /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C572E2C1A864D7D009B999C /* Strings.swift */; };
+		2C5DAC5B1A83F1C000765196 /* back_flip.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2C5DAC571A83F1C000765196 /* back_flip.wav */; };
+		2C5DAC5C1A83F1C000765196 /* flip.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2C5DAC581A83F1C000765196 /* flip.wav */; };
+		2C5DAC5D1A83F1C000765196 /* game_over.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2C5DAC591A83F1C000765196 /* game_over.wav */; };
+		2C5DAC5E1A83F1C000765196 /* level_complete.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C5DAC5A1A83F1C000765196 /* level_complete.mp3 */; };
+		2C5DAC601A83F1E700765196 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5DAC5F1A83F1E700765196 /* SoundManager.swift */; };
+		2CF10AC41A8406E400CEC1FA /* background.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2CF10AC31A8406E400CEC1FA /* background.mp3 */; };
 		3211F37F1A348BD7000E8CE9 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3211F37E1A348BD7000E8CE9 /* Protocols.swift */; };
 		3211F3841A348ED2000E8CE9 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3211F3831A348ED2000E8CE9 /* Utils.swift */; };
 		3211F3881A349FDF000E8CE9 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3211F3871A349FDF000E8CE9 /* Settings.swift */; };
@@ -90,6 +122,38 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C572DFA1A8647F8009B999C /* 26.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 26.json; sourceTree = "<group>"; };
+		2C572DFB1A8647F8009B999C /* 27.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 27.json; sourceTree = "<group>"; };
+		2C572DFC1A8647F8009B999C /* 28.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 28.json; sourceTree = "<group>"; };
+		2C572DFD1A8647F8009B999C /* 29.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 29.json; sourceTree = "<group>"; };
+		2C572DFE1A8647F8009B999C /* 30.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 30.json; sourceTree = "<group>"; };
+		2C572DFF1A8647F8009B999C /* 31.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 31.json; sourceTree = "<group>"; };
+		2C572E001A8647F8009B999C /* 32.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 32.json; sourceTree = "<group>"; };
+		2C572E011A8647F8009B999C /* 33.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 33.json; sourceTree = "<group>"; };
+		2C572E021A8647F8009B999C /* 34.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 34.json; sourceTree = "<group>"; };
+		2C572E031A8647F8009B999C /* 35.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 35.json; sourceTree = "<group>"; };
+		2C572E041A8647F8009B999C /* 36.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 36.json; sourceTree = "<group>"; };
+		2C572E051A8647F8009B999C /* 37.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 37.json; sourceTree = "<group>"; };
+		2C572E061A8647F8009B999C /* 38.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 38.json; sourceTree = "<group>"; };
+		2C572E071A8647F8009B999C /* 39.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 39.json; sourceTree = "<group>"; };
+		2C572E081A8647F8009B999C /* 40.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 40.json; sourceTree = "<group>"; };
+		2C572E091A8647F8009B999C /* 41.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 41.json; sourceTree = "<group>"; };
+		2C572E0A1A8647F8009B999C /* 42.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 42.json; sourceTree = "<group>"; };
+		2C572E0B1A8647F8009B999C /* 43.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 43.json; sourceTree = "<group>"; };
+		2C572E0C1A8647F8009B999C /* 44.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 44.json; sourceTree = "<group>"; };
+		2C572E0D1A8647F8009B999C /* 45.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 45.json; sourceTree = "<group>"; };
+		2C572E0E1A8647F8009B999C /* 46.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 46.json; sourceTree = "<group>"; };
+		2C572E0F1A8647F8009B999C /* 47.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 47.json; sourceTree = "<group>"; };
+		2C572E101A8647F8009B999C /* 48.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 48.json; sourceTree = "<group>"; };
+		2C572E111A8647F8009B999C /* 49.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 49.json; sourceTree = "<group>"; };
+		2C572E121A8647F8009B999C /* 50.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 50.json; sourceTree = "<group>"; };
+		2C572E2C1A864D7D009B999C /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		2C5DAC571A83F1C000765196 /* back_flip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = back_flip.wav; sourceTree = "<group>"; };
+		2C5DAC581A83F1C000765196 /* flip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = flip.wav; sourceTree = "<group>"; };
+		2C5DAC591A83F1C000765196 /* game_over.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = game_over.wav; sourceTree = "<group>"; };
+		2C5DAC5A1A83F1C000765196 /* level_complete.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = level_complete.mp3; sourceTree = "<group>"; };
+		2C5DAC5F1A83F1E700765196 /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		2CF10AC31A8406E400CEC1FA /* background.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background.mp3; sourceTree = "<group>"; };
 		3211F37E1A348BD7000E8CE9 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Protocols.swift; path = protocol/Protocols.swift; sourceTree = "<group>"; };
 		3211F3831A348ED2000E8CE9 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = utils/Utils.swift; sourceTree = "<group>"; };
 		3211F3871A349FDF000E8CE9 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -184,6 +248,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C5DAC561A83F1C000765196 /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				2CF10AC31A8406E400CEC1FA /* background.mp3 */,
+				2C5DAC571A83F1C000765196 /* back_flip.wav */,
+				2C5DAC581A83F1C000765196 /* flip.wav */,
+				2C5DAC591A83F1C000765196 /* game_over.wav */,
+				2C5DAC5A1A83F1C000765196 /* level_complete.mp3 */,
+			);
+			path = sounds;
+			sourceTree = "<group>";
+		};
 		3211F37D1A348BB4000E8CE9 /* protocol */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +282,7 @@
 				3211F3871A349FDF000E8CE9 /* Settings.swift */,
 				3211F3891A349FF7000E8CE9 /* GameOverSettings.swift */,
 				329D47F41A40964D005CF6AB /* PauseWindowSettings.swift */,
+				2C572E2C1A864D7D009B999C /* Strings.swift */,
 			);
 			path = settings;
 			sourceTree = "<group>";
@@ -213,6 +290,7 @@
 		32C027F819F52BFA001B1A96 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2C5DAC561A83F1C000765196 /* sounds */,
 				32BF44C91A61764200AB2C83 /* best.png */,
 				329D47F21A409580005CF6AB /* pauseBtn.png */,
 				32FAF1931A2F994A00996152 /* tutor */,
@@ -242,6 +320,31 @@
 		32C0D2EF1A2BB05400460F12 /* levelsInfo */ = {
 			isa = PBXGroup;
 			children = (
+				2C572DFA1A8647F8009B999C /* 26.json */,
+				2C572DFB1A8647F8009B999C /* 27.json */,
+				2C572DFC1A8647F8009B999C /* 28.json */,
+				2C572DFD1A8647F8009B999C /* 29.json */,
+				2C572DFE1A8647F8009B999C /* 30.json */,
+				2C572DFF1A8647F8009B999C /* 31.json */,
+				2C572E001A8647F8009B999C /* 32.json */,
+				2C572E011A8647F8009B999C /* 33.json */,
+				2C572E021A8647F8009B999C /* 34.json */,
+				2C572E031A8647F8009B999C /* 35.json */,
+				2C572E041A8647F8009B999C /* 36.json */,
+				2C572E051A8647F8009B999C /* 37.json */,
+				2C572E061A8647F8009B999C /* 38.json */,
+				2C572E071A8647F8009B999C /* 39.json */,
+				2C572E081A8647F8009B999C /* 40.json */,
+				2C572E091A8647F8009B999C /* 41.json */,
+				2C572E0A1A8647F8009B999C /* 42.json */,
+				2C572E0B1A8647F8009B999C /* 43.json */,
+				2C572E0C1A8647F8009B999C /* 44.json */,
+				2C572E0D1A8647F8009B999C /* 45.json */,
+				2C572E0E1A8647F8009B999C /* 46.json */,
+				2C572E0F1A8647F8009B999C /* 47.json */,
+				2C572E101A8647F8009B999C /* 48.json */,
+				2C572E111A8647F8009B999C /* 49.json */,
+				2C572E121A8647F8009B999C /* 50.json */,
 				32BF44CB1A61B22800AB2C83 /* 25.json */,
 				32BF44CC1A61B22800AB2C83 /* 24.json */,
 				32BF44CD1A61B22800AB2C83 /* 23.json */,
@@ -344,6 +447,7 @@
 				3211F3821A348EBD000E8CE9 /* utils */,
 				3211F37D1A348BB4000E8CE9 /* protocol */,
 				32EF771119D08636006707A5 /* AppDelegate.swift */,
+				2C5DAC5F1A83F1E700765196 /* SoundManager.swift */,
 				3285735E19EE8E5B00A00092 /* PlayerData.swift */,
 				32EF771319D08636006707A5 /* ViewController.swift */,
 				32EF773119D143F4006707A5 /* Box.swift */,
@@ -482,6 +586,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32EF771719D08636006707A5 /* Main.storyboard in Resources */,
+				2C572E281A8647F8009B999C /* 47.json in Resources */,
 				32FAF1991A2F994A00996152 /* help_3.png in Resources */,
 				329D47F31A409580005CF6AB /* pauseBtn.png in Resources */,
 				32FAF1971A2F994A00996152 /* help_1.png in Resources */,
@@ -489,32 +594,58 @@
 				3280A6F21A27CB3000BD639D /* ITCKRIST.TTF in Resources */,
 				32BF44E11A61B22800AB2C83 /* 21.json in Resources */,
 				32BF44CA1A61764200AB2C83 /* best.png in Resources */,
+				2C572E1C1A8647F8009B999C /* 35.json in Resources */,
+				2C572E201A8647F8009B999C /* 39.json in Resources */,
 				32BF44EC1A61B22800AB2C83 /* 10.json in Resources */,
 				32FAF1981A2F994A00996152 /* help_2.png in Resources */,
 				32BF44EA1A61B22800AB2C83 /* 12.json in Resources */,
+				2C572E271A8647F8009B999C /* 46.json in Resources */,
+				2C572E1D1A8647F8009B999C /* 36.json in Resources */,
+				2C572E131A8647F8009B999C /* 26.json in Resources */,
 				32BF44DF1A61B22800AB2C83 /* 23.json in Resources */,
+				2CF10AC41A8406E400CEC1FA /* background.mp3 in Resources */,
 				32BF44E21A61B22800AB2C83 /* 20.json in Resources */,
+				2C572E2B1A8647F8009B999C /* 50.json in Resources */,
+				2C572E261A8647F8009B999C /* 45.json in Resources */,
+				2C5DAC5B1A83F1C000765196 /* back_flip.wav in Resources */,
+				2C572E211A8647F8009B999C /* 40.json in Resources */,
 				3280A6EF1A27963100BD639D /* restartBtn.png in Resources */,
+				2C572E161A8647F8009B999C /* 29.json in Resources */,
 				32EF771C19D08636006707A5 /* LaunchScreen.xib in Resources */,
+				2C572E221A8647F8009B999C /* 41.json in Resources */,
 				32BF44E51A61B22800AB2C83 /* 17.json in Resources */,
 				32C0D2FD1A2BB05400460F12 /* 7.json in Resources */,
 				32C0D2FB1A2BB05400460F12 /* 5.json in Resources */,
+				2C572E1E1A8647F8009B999C /* 37.json in Resources */,
+				2C5DAC5D1A83F1C000765196 /* game_over.wav in Resources */,
 				32BF44E01A61B22800AB2C83 /* 22.json in Resources */,
 				32C83A891A227BDF0001D3B5 /* TCMI____.TTF in Resources */,
+				2C572E141A8647F8009B999C /* 27.json in Resources */,
 				32C0D2F81A2BB05400460F12 /* 2.json in Resources */,
+				2C572E181A8647F8009B999C /* 31.json in Resources */,
 				32C0D2F71A2BB05400460F12 /* 1.json in Resources */,
 				32C83A8C1A227BDF0001D3B5 /* TCCEB.TTF in Resources */,
 				32C0D2FA1A2BB05400460F12 /* 4.json in Resources */,
 				32C83A8F1A227BDF0001D3B5 /* TCB_____.TTF in Resources */,
 				32C0E45D1A7E6A8A0061805D /* help_4.png in Resources */,
+				2C5DAC5C1A83F1C000765196 /* flip.wav in Resources */,
 				32C83A8D1A227BDF0001D3B5 /* TCCB____.TTF in Resources */,
 				32BF44EB1A61B22800AB2C83 /* 11.json in Resources */,
+				2C572E1A1A8647F8009B999C /* 33.json in Resources */,
 				32EF771919D08636006707A5 /* Images.xcassets in Resources */,
+				2C572E171A8647F8009B999C /* 30.json in Resources */,
+				2C572E231A8647F8009B999C /* 42.json in Resources */,
+				2C5DAC5E1A83F1C000765196 /* level_complete.mp3 in Resources */,
+				2C572E241A8647F8009B999C /* 43.json in Resources */,
+				2C572E291A8647F8009B999C /* 48.json in Resources */,
 				32BF44E61A61B22800AB2C83 /* 16.json in Resources */,
 				32C83A8B1A227BDF0001D3B5 /* TCCM____.TTF in Resources */,
 				32BF44E81A61B22800AB2C83 /* 14.json in Resources */,
 				32BF44E31A61B22800AB2C83 /* 19.json in Resources */,
+				2C572E1B1A8647F8009B999C /* 34.json in Resources */,
 				32BF44E91A61B22800AB2C83 /* 13.json in Resources */,
+				2C572E191A8647F8009B999C /* 32.json in Resources */,
+				2C572E251A8647F8009B999C /* 44.json in Resources */,
 				32BF44DE1A61B22800AB2C83 /* 24.json in Resources */,
 				32C0D2FC1A2BB05400460F12 /* 6.json in Resources */,
 				32BF44DD1A61B22800AB2C83 /* 25.json in Resources */,
@@ -523,7 +654,10 @@
 				32BF44E71A61B22800AB2C83 /* 15.json in Resources */,
 				32BF44ED1A61B22800AB2C83 /* 9.json in Resources */,
 				32BF44EE1A61B22800AB2C83 /* 8.json in Resources */,
+				2C572E1F1A8647F8009B999C /* 38.json in Resources */,
+				2C572E151A8647F8009B999C /* 28.json in Resources */,
 				32C83A8A1A227BDF0001D3B5 /* TCM_____.TTF in Resources */,
+				2C572E2A1A8647F8009B999C /* 49.json in Resources */,
 				3280A6F01A27963100BD639D /* backBtn.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -552,6 +686,7 @@
 				3285736519EEEB5300A00092 /* GameBalance.swift in Sources */,
 				3211F38A1A349FF7000E8CE9 /* GameOverSettings.swift in Sources */,
 				32EF771419D08636006707A5 /* ViewController.swift in Sources */,
+				2C572E2D1A864D7D009B999C /* Strings.swift in Sources */,
 				329D47EC1A3F8E7D005CF6AB /* MenuButton.swift in Sources */,
 				32C3A6421A6D37FF004AFC29 /* PauseController.swift in Sources */,
 				3211F3841A348ED2000E8CE9 /* Utils.swift in Sources */,
@@ -559,6 +694,7 @@
 				32C3A6441A6D37FF004AFC29 /* TutorController.swift in Sources */,
 				32C0D2EC1A2BA85800460F12 /* LevelProvider.swift in Sources */,
 				32C3A6401A6D37FF004AFC29 /* GameOverController.swift in Sources */,
+				2C5DAC601A83F1E700765196 /* SoundManager.swift in Sources */,
 				32C3A6451A6D37FF004AFC29 /* TutorWindow.swift in Sources */,
 				32334B7319D9EFA800413DC9 /* MainViewController.swift in Sources */,
 				329D47F51A40964D005CF6AB /* PauseWindowSettings.swift in Sources */,
